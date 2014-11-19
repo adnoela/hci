@@ -1,0 +1,44 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+html{ 
+    height:100%; 
+}
+body{ 
+    position:absolute; top:0; bottom:0; right:0; left:0;
+}
+#header{
+    height: 20%;
+}
+#content{
+    border: solid;
+    height: 60%;
+}
+#footer{
+    height: 18%
+}
+#qr-box{
+    float: right;
+}
+#code{
+    height:150px;
+    width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
