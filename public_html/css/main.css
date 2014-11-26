@@ -8,16 +8,22 @@ html{
 }
 body{ 
     position:absolute; top:0; bottom:0; right:0; left:0;
+    height: 100%
 }
+
 #header{
-    height: 20%;
+    height: 15%;
+    text-align: center;
 }
 #content{
     border: solid;
     height: 60%;
+    text-align: center;
 }
 #footer{
-    height: 18%
+    height: 20%;
+    position: relative;
+    bottom: 0;
 }
 #qr-box{
     float: right;
@@ -27,12 +33,9 @@ body{
     width: 150px;
 }
 
-
-
-
-
-
-
+progress {
+    width: 80%;
+}
 
 
 
