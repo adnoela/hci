@@ -1,4 +1,0 @@
-hci
-===
-
-Our HCI project
