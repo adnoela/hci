@@ -16,6 +16,22 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+    <script type="text/javascript">
+        var pusher = new Pusher('85b8dbe2ce68623ad71a');
+        var channel = pusher.subscribe('test-channel');
+        channel.bind('test-event', function (data) {
+            alert('This was sent: ' + data.message);
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = "rgb(190,135,135)";
+            ctx.fillRect(20, 20, 200, 100);  // Rotes Viereck mit Ursprung (20,20)
+            ctx.fillStyle = "rgba(135,190,135,0.5)";
+            ctx.fillRect(80, 60, 300, 100);  // Grünes Viereck mit Ursprung (80,60)
+
+        });
+    </script>
 
     </head>
     <body>
@@ -26,16 +42,14 @@
             <h1>Overview</h1>
         </section>
         <section id="content">
-            <canvas id="painting">
-                <p>Dieses Beispiel benötigt einen Webbrowser mit aktivierter
-                    <a href="http://de.wikipedia.org/wiki/Canvas_(HTML-Element)">HTML Canvas</a>-Unterstützung.</p>
-            </canvas>
+            <canvas id="canvas" width="600" height="500" style="border:solid black 1px;">
+            Your browser does not support canvas element.
+        </canvas>
         </section>
         <section id="footer">
             <div id="qr-box">
-                <a href="mobilestart.html">
-                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fmobilestart.html&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
-                </a>
+                <a href="drawing.php">
+                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fdrawing.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />                </a>
             </div>
         </section>
     </body>
