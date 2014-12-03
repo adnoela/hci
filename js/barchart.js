@@ -4,22 +4,35 @@
  * and open the template in the editor.
  */
 
+var imported = document.createElement('chart_script');
+imported.src = 'lib/Chart.js';
+document.head.appendChild(imported);
+
+var locations = ["Altes AKH","Karlsplatz","Rathaus","Spittelberg"];
+var myData = [30,45,42,32];
 
 function draw() {
-    var canvas = document.getElementById('bar-chart');
+	var barChartData = {
+		labels : locations,
+		datasets : [
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,0.8)",
+				highlightFill: "rgba(220,220,220,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data : myData 
+			}
+		]
 
-    if(canvas && canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-
-        if(ctx) {
-            ctx.fillStyle(130, 130, 130);
-            ctx.fillRect(50, 25, 100, 150); // x, y, w, h
-        }
+	}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	}
     }
-}
-
-window.onload = draw;
-
+   
 
 
 

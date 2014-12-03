@@ -1,3 +1,10 @@
+
+<?php
+$Akh = $_GET["Akh"];
+$Kar = $_GET["Kar"];
+$Rat = $_GET["Rat"];
+$Spi = $_GET["Spi"];
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -50,14 +57,16 @@ and open the template in the editor.
                 </a>
             </div>
         </section>
-        <?php
-        $Akh = $_POST["Akh"];
-        ?>
+
         <script>
             var locations = ["Altes AKH", "Karlsplatz", "Rathaus", "Spittelberg"];
-            var myData = [30, 45, 42, 32];
-            var phpData =  <?php echo $Akh; ?>;
-            window.alert(phpData)
+            //var myData = [30, 45, 42, 32];
+            var akh = <?php echo $Akh; ?>;
+            var kar = <?php echo $Kar; ?>;
+            var rat = <?php echo $Rat; ?>;
+            var spi = <?php echo $Spi; ?>;
+            var myData = [akh, kar, rat, spi];
+            
             var barChartData = {
                 labels: locations,
                 datasets: [
