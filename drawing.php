@@ -6,35 +6,44 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>drawing screen</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <script type="text/javascript" src="js/main.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <script>var request = new XMLHttpRequest();</script>
+        <script type="text/javascript" src="js/drawing.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     </head>
-    <body onload="startup()">
-        <canvas id="canvas" width="600" height="600" style="border:solid black 1px;">
-            Your browser does not support canvas element.
-        </canvas>
-        <form method="post">
-            <input name="data" type="text">
-            <input type="submit" name="submit" value="abschicken">
-        </form>
-        <pre id="log" style="border: 1px solid #ccc;"></pre>
+    <body onload="init()">
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-default" onclick="">abbrechen</button>
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-3"></div>
+        </div>
+        <div id="canvasDiv"> 
+            <canvas id="can" height="400" width="400"></canvas>
+        </div>
+        <div class="col-xs-6">
+            <div class="btn-group btn-group-justified" role="group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" autofocus="true" onclick="small()">Klein</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" onclick="middle()">Mittel</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" onclick="large()">Groß</button>
+                </div>
+            </div>
+        </div>
 
-        <?php
-        if (isset($_POST['submit'])) {
-            require('Pusher.php');
-
-            $app_id = '97922';
-            $app_key = '85b8dbe2ce68623ad71a';
-            $app_secret = '43c87684389502072851';
-
-            $pusher = new Pusher($app_key, $app_secret, $app_id);
-
-            $data['message'] = $_POST["data"];
-            $pusher->trigger('test-channel', 'test-event', $data);
-        }
-        ?>
+        <div class="col-xs-6">
+           <button type="button" class="btn center-block" onclick="erase()">alles loeschen</button>
+                </div>
+            </div>
+        </div>
     </body>
-
 </html>
