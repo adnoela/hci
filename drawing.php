@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <title>drawing screen</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>var request = new XMLHttpRequest();</script>
         <script type="text/javascript" src="js/drawing.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -16,15 +16,23 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     </head>
     <body onload="init()">
-        <div class="row">
-            <div class="col-md-3">
-                <button class="btn btn-default" onclick="">abbrechen</button>
+        <div class="row-fluid" style="margin-top: 2%;">
+            <div class="col-xs-4">
+                <button class="btn btn-warning center-block" onclick="">abbrechen</button>
             </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-3"></div>
+            <div class="col-xs-4">
+                <div class="text-center">
+                    <h4>Objekt: Gitarre</h4>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <form name="countdownform">
+                        <input id="input" name="countdowninput">
+                </form>
+            </div>
         </div>
         <div id="canvasDiv"> 
-            <canvas id="can" height="400" width="400"></canvas>
+            <canvas id="can" width="400" height="400" style="border: 2px solid;"></canvas>
         </div>
         <div class="col-xs-6">
             <div class="btn-group btn-group-justified" role="group">
@@ -41,9 +49,7 @@ and open the template in the editor.
         </div>
 
         <div class="col-xs-6">
-           <button type="button" class="btn center-block" onclick="erase()">alles loeschen</button>
-                </div>
-            </div>
+            <button type="button" class="btn btn-danger center-block" onclick="erase()" autofocus="false">Zeichnung löschen</button>
         </div>
     </body>
 </html>

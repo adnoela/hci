@@ -5,6 +5,7 @@ function init() {
     el.addEventListener("touchend", handleEnd, false);
     el.addEventListener("touchleave", handleEnd, false);
     el.addEventListener("touchmove", handleMove, false);
+    countdown();
 }
 
 var coor = "";
@@ -23,17 +24,18 @@ function handleStart(evt) {
     ctx.fillStyle = color;
     ctx.fill();
     coor = coor + tempX + " " + tempY + " ";
+    send();
 }
 
 function handleMove(evt) {
     evt.preventDefault();
 
-
+    console.log(coor);
     for (var i = 0; i < evt.changedTouches.length; i++) {
         ctx.beginPath();
         ctx.moveTo(tempX, tempY);
-        tempX = evt.changedTouches[i].pageX;
-        tempY = evt.changedTouches[i].pageY;
+        tempX = evt.changedTouches[i].pageX - el.offsetLeft;
+        tempY = evt.changedTouches[i].pageY - el.offsetTop;
         ctx.lineTo(tempX, tempY);
         ctx.lineWidth = size;
         ctx.strokeStyle = color;
@@ -64,27 +66,53 @@ function erase() {
     coor = "";
 }
 
-function small(){
-    size=2;
+function small() {
+    size = 2;
     coor = "small";
     send();
     coor = "";
 }
 
-function middle(){
-    size=4;
+function middle() {
+    size = 4;
     coor = "middle";
     send();
     coor = "";
 }
 
-function large(){
-    size=6;
+function large() {
+    size = 6;
     coor = "large";
     send();
     coor = "";
 }
 
+
+function countdown (i) {
+  if (i == undefined) {
+    // Startwert
+    i = 60;
+  }
+  document.countdownform.countdowninput.value =
+          "noch "+i+" Sekunden";
+  if (i > 0) {
+    i--;
+    // Funktion verzögert aufrufen
+    window.setTimeout("countdown(" + i + ")", 1000);
+  }
+  else
+      end();
+}
+var ans;
+function answer(answer){
+    ans=""+answer;
+    request.open('post', "pusheranswer.php?ans=" + ans, true);
+    request.send(null);
+}
+
+function end(){
+    alert("Die Zeit ist abgelaufen");
+}
 //works with mouse
 /*var canvas, ctx, flag = false,
  prevX = 0,

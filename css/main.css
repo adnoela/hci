@@ -32,23 +32,38 @@ body{
     height:150px;
     width: 150px;
 }
-#can{
-    border-style: solid;
-    border-width: 2px;
-}
-progress {
-    width: 80%;
+#canvasDiv{
+    width: 402px;
+    margin: 0 auto;
+    margin-top: 5%;
 }
 
 #center{
     alignment-adjust: middle;
 }
+#firstrow{
+    margin-top: 4%;
+    height: 10%
+}
+#vert{
+    vertical-align: middle;
+    min-height: 100%;
+}
+#bf{
+    vertical-align: middle;
+    min-height: 100%;
+}
+#input {
+    border: none;
+}
+.drawanswer{
+    width:80%;
+    margin-left: 10%;
+    margin-top: 3%;
+    height: 20%;
+}
 
-
-
-
-
-
-
-
-
+.btn-xl{
+    padding: 18px 28px;
+    font-size: 28px;
+}
