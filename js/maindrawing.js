@@ -2,9 +2,9 @@ var canvas;
 
 function init(){
 canvas = document.getElementById('canvas');
-canvas.width = screen.width*0.45;
+canvas.width = screen.width*0.42;
 canvas.height = canvas.width;
-//countdown();
+countdown();
 }
 
 
@@ -13,8 +13,8 @@ function countdown (i) {
     // Startwert
     i = 60;
   }
-  document.countdownform.countdowninput.value =
-          "noch "+i+" Sekunden";
+  document.countdownform.countdown.value =
+          "Verbleibende Zeit: "+i+" Sekunden";
   if (i > 0) {
     i--;
     // Funktion verzögert aufrufen

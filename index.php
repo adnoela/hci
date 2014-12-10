@@ -21,13 +21,13 @@
             var pusher = new Pusher('85b8dbe2ce68623ad71a');
             var channel = pusher.subscribe('test-channel');
             var count = 0;
-            var size = screen.width * 0.45;
+            var size = screen.width * 0.42;
             size = size / 400;
-            strichgr = 4 * size;
+            strichgr = 2 * size;
             channel.bind('test-event', function (data) {
                 var mess, prevX = 0, prevY = 0, currX = 0, currY = 0;
-                
-                
+
+
                 var canvas = document.getElementById('canvas');
                 var ctx = canvas.getContext('2d');
                 mess = data.message;
@@ -38,13 +38,13 @@
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                 }
                 else if (mess.indexOf('s') === 0) {
-                    strichgr = 2 * size * 2;
+                    strichgr = size * 2;
                 }
                 else if (mess.indexOf('m') === 0) {
-                    strichgr = 2 * size * 4;
+                    strichgr = size * 4;
                 }
                 else if (mess.indexOf('l') === 0) {
-                    strichgr = 2 * size * 8;
+                    strichgr = size * 8;
                 }
                 else {
                     var coor = "" + mess;
@@ -84,33 +84,43 @@
     </head>
     <body onload="init()" style="height: 100%;">
 
-        <div class="row-fluid" style="width:100%; min-height: 15%;">
-            <div class="col-md-3" style="border:2px solid;"></div>
-            <div class="col-md-6" style="border:2px solid;">
+        <div class="row-fluid" style="width:100%;min-height: 15%;">
+            <div class="col-md-3""></div>
+            <div class="col-md-6">
                 <div class="text-center">
                     <h1>Was wird hier gemalt?</h1>
                 </div>
             </div>
-            <div class="col-md-3" style="border:2px solid;">
+            <div class="col-md-3" style="margin-top:1%;">
+                <form name="countdownform">
+                    <input id="input" name="countdown" size="30" value="Verbleibende Zeit: 60 Sekunden">
+                </form>
                 <form name="counterform">
-                    <input id="input" name="counter">
+                    <input id="input" name="counter" size="30" value="Richtige Antworten: 0">
                 </form>
             </div>
         </div>
-        <div class="container-fluid" style="min-height: 85%;">
-            <div class="row-fluid" style="min-height: 85%;">
-                <div class="col-md-6" style="border:2px solid; min-height: 85%;">
-                    <canvas id="canvas" style="border: 2px solid;"></canvas>
-                </div>
-                <div class="col-md-4" style="border:2px solid;">
-                    <button type="button" class="btn-lg center-block" >Christbaum</button>
-                    <button type="button" class="btn-lg center-block" >Gitarre</button>
-                    <button type="button" class="btn-lg center-block" >Heiligen 3 Könige</button>
-                    <button type="button" class="btn-lg center-block" >Punsch</button>
-                </div>
-                <div class="col-md-2" style="border:2px solid;">
-                </div>
+        <div class="canvasBox">
+            <canvas id="canvas" style="border: 2px solid;"></canvas>
+        </div>
+        <div class="col-md-4" style="height:85%; margin-top: -2%; margin-left: 3%;">
+            <div class="drawanswer1">
+                <button class="btn-xl btn-primary btn-block" onclick="answer('A')">Tannenbaum</button> 
             </div>
+            <div class="drawanswer1">
+                <button class="btn-xl btn-primary btn-block" onclick="answer('B')">Gitarre</button> 
+            </div>
+            <div class="drawanswer1">
+                <button class="btn-xl btn-primary btn-block" onclick="answer('C')">Smarthone</button> 
+            </div>
+            <div class="drawanswer1">
+                <button class="btn-xl btn-primary btn-block" onclick="answer('D')">Pizzaschneider</button> 
+            </div>
+        </div>
+        <div class="qrBox">
+            <a href="drawing.php" style>
+                <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fdrawing.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               
+            </a>
         </div>
 
 
@@ -118,9 +128,7 @@
 </html>
 <!--
 
-<canvas id="canvas" style="border: 2px solid;"></canvas>
 
-<a href="drawing.php">
-                                <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fdrawing.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               
-</a>
+
+
 -->

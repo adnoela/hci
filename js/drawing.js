@@ -10,7 +10,7 @@ function init() {
 
 var coor = "";
 var color = "black";
-var size = 2;
+var size = 1;
 var el;
 var ctx;
 var tempX = 0;
@@ -67,21 +67,21 @@ function erase() {
 }
 
 function small() {
-    size = 2;
+    size = 1;
     coor = "small";
     send();
     coor = "";
 }
 
 function middle() {
-    size = 4;
+    size = 2;
     coor = "middle";
     send();
     coor = "";
 }
 
 function large() {
-    size = 6;
+    size = 4;
     coor = "large";
     send();
     coor = "";
