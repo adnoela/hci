@@ -77,6 +77,10 @@
                     document.counterform.counter.value = "Richtige Antworten: " + count;
                 }
             });
+            channel.bind('countdown-event', function (data) {
+                alert("start");
+                countdown();
+            })
 
 
         </script>

@@ -25,26 +25,20 @@ and open the template in the editor.
                 </div>
                 <div class="btn-group" role="group">
                     <a href="drawquiz.php">
-                    <button type="button" class="btn btn-success" autofocus="true">Drawing-Quiz</button>
+                    <button type="button" class="btn btn-success" disabled="true">Drawing-Quiz</button>
                     </a>
                 </div>
             </div>
         </div>
         
         <div class="row-fluid" style="margin-top: 2%;">
-            <div class="col-xs-4">
-                <button class="btn btn-warning center-block" onclick="">abbrechen</button>
-            </div>
+            <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
                     <h4>Objekt: Gitarre</h4>
                 </div>
             </div>
-            <div class="col-xs-4">
-                <form name="countdownform">
-                        <input id="input" name="countdowninput">
-                </form>
-            </div>
+            <div class="col-xs-4"></div>
         </div>
         <div id="canvasDiv"> 
             <canvas id="can" width="400" height="400" style="border: 2px solid;"></canvas>

@@ -24,18 +24,14 @@ and open the template in the editor.
                     </a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="drawquiz.php">
                     <button type="button" class="btn btn-success" autofocus="true">Drawing-Quiz</button>
-                    </a>
                 </div>
             </div>
         </div>
         
         
         <div id="firstrow" class="row-fluid">
-            <div class="col-xs-4">
-                <button class="btn btn-warning center-block" onclick="">abbrechen</button>
-            </div>
+            <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
                     <h4>Paint-Quiz</h4>
