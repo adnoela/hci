@@ -57,7 +57,7 @@ padding: 0;
 width: 362px;
 border-top: 5px solid #D25A0B; /*Brown color theme*/ 
 background: transparent;
-voice-family: "\"}\"";
+//voice-family: "\"}\"";
 voice-family: inherit;
 }
 
