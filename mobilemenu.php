@@ -1,5 +1,13 @@
 <?php
-    session_start();
+session_start();
+
+$hostname = $_SERVER['HTTP_HOST'];
+$path = dirname($_SERVER['PHP_SELF']);
+
+if (!isset($_SESSION['angemeldet']) || !$_SESSION['angemeldet']) {
+    header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/login.php');
+    exit;
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml2/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -22,13 +30,11 @@
     </head>
 
     <body>
-
         <ul id="countrytabs" class="shadetabs">
             <li><a href="quizmobile.php" rel=countrycontainer">Quiz</a></li>
-            <li><a href="mobilestart.html" rel="countrycontainer">Foto</a></li>
+            <li><a href="mobilefoto.php" rel="countrycontainer">Foto</a></li>
             <li><a href="external3.htm" rel="countrycontainer">Tab 3</a></li>
             <li><a href="external4.htm" rel="#iframe">Tab 4</a></li>
-            <li><a href="http://www.dynamicdrive.com">Dynamic Drive</a></li>
         </ul>
 
         <div id="countrydivcontainer" style="border:1px solid gray; margin-bottom: 1em; padding: 10px">
