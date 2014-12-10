@@ -40,7 +40,6 @@ and open the template in the editor.
                     <p>Dieses Beispiel benötigt einen Webbrowser mit aktivierter
                         <a href="http://de.wikipedia.org/wiki/Canvas_(HTML-Element)">HTML Canvas</a>-Unterstützung.</p>
                 </canvas>
-                <button onclick="updateChart()">update chart</button>
             </div>
 
         </section>
