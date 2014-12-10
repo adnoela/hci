@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+$startTime = round(microtime(true) * 1000);
+?>
 
-<!-- REPLACED WITH PHP - DELETE -->
 <html>
     <head>
         <title>Quiz</title>
@@ -35,41 +31,45 @@ and open the template in the editor.
             var channel = pusher.subscribe('channel1');
             channel.bind('answer', function (data) {
                 //alert(data.message);
-                if(acceptAnswers) {
-                if (data.message == "A") {
-                    right++;
-                } else {
-                    wrong++;
+                if (acceptAnswers) {
+                    if (data.message == "A") {
+                        right++;
+                    } else {
+                        wrong++;
+                    }
+                    //alert("right: " + right + ", wrong: " + wrong);
+                    document.getElementById("rightAnswers").textContent = right.toString();
+                    document.getElementById("wrongAnswers").textContent = wrong.toString();
+
+                    percent = (right) / (right + wrong) * 100;
+                    document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
                 }
-                //alert("right: " + right + ", wrong: " + wrong);
-                document.getElementById("rightAnswers").textContent = right.toString();
-                document.getElementById("wrongAnswers").textContent = wrong.toString();
+            });
 
-                percent = (right) / (right + wrong) * 100;
-                document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
-            }    
-        });
-
+            var startTime = <?php echo $startTime; ?>;
+            var timeNow = new Date().getTime();
             var seconds = 20;
             var max = 100;
-            var counter = 100;
-            var interval = 250;
-            var x = max/seconds*(interval/1000);
+            var counter = max - (timeNow - startTime) / 1000;
+            var interval = 100;
+            var x = max / seconds * (interval / 1000);
 
             function countdown() {
                 var bar = document.getElementById("pbarTimer");
                 setInterval(function () {
-                    if(counter - x >=0) {
-                    counter = counter - x;
-                    bar.value = counter;
-                } else {
-                    interval = 100000;
-                    showRightAnswer();
-                }
+                    if (counter - x < 0) {
+
+                        interval = 100000;
+                        bar.value = 0;
+                        showRightAnswer();
+                    } else {
+                        counter = counter - x;
+                        bar.value = counter;
+                    }
 
                 }, interval)
             }
-            
+
             function showRightAnswer() {
                 acceptAnswers = false;
                 var button = document.getElementById("answer-A");
