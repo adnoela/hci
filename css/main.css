@@ -63,7 +63,6 @@ body{
     margin-top: 5%;
     height: 20%;
 }
-
 .btn-xl{
     padding: 18px 28px;
     font-size: 28px;
@@ -79,11 +78,10 @@ body{
     float:right;
     height:85%;
 }
-
 #code{
     height:150px;
     width: 150px;
     position:absolute;
-    right:0;
-    bottom:0;
+    right:3%;
+    bottom:3%;
 }

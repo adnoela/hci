@@ -5,9 +5,10 @@ function init() {
     el.addEventListener("touchend", handleEnd, false);
     el.addEventListener("touchleave", handleEnd, false);
     el.addEventListener("touchmove", handleMove, false);
-    countdown();
+    //countdown();
 }
 
+var object = "Gitarre";
 var coor = "";
 var color = "black";
 var size = 1;
@@ -91,7 +92,7 @@ function large() {
 function countdown (i) {
   if (i == undefined) {
     // Startwert
-    i = 60;
+    i = 5;
   }
   document.countdownform.countdowninput.value =
           "noch "+i+" Sekunden";
@@ -100,9 +101,12 @@ function countdown (i) {
     // Funktion verzögert aufrufen
     window.setTimeout("countdown(" + i + ")", 1000);
   }
-  else
-      end();
-}
+  else {
+    window.setTimeout(forward(), 5000);
+    alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: "+object
+          +"! Sie werden in 5 Sekunden automatisch weitergeleitet!")
+      }
+  }
 var ans;
 function answer(answer){
     ans=""+answer;
@@ -110,9 +114,22 @@ function answer(answer){
     request.send(null);
 }
 
-function end(){
-    alert("Die Zeit ist abgelaufen");
+function forward(){
+    document.location.href="drawing.php";
 }
+
+/*function tempAlert(msg,duration)
+{
+ var el = document.createElement("div");
+ el.setAttribute("style","width:50%;position:absolute;left:25%;top:40%;background-color:white;border:2px solid;");
+ el.innerHTML = msg;
+ setTimeout(function(){
+  el.parentNode.removeChild(el);
+ },duration);
+ document.body.appendChild(el);
+}
+*/
+
 //works with mouse
 /*var canvas, ctx, flag = false,
  prevX = 0,

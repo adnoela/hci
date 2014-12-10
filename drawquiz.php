@@ -16,6 +16,22 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     </head>
     <body>
+        <div class="col-xs-12">
+            <div class="btn-group btn-group-justified" role="group">
+                <div class="btn-group" role="group">
+                    <a href="mobilefoto.php">
+                    <button type="button" class="btn btn-primary">Fotostream</button>
+                    </a>
+                </div>
+                <div class="btn-group" role="group">
+                    <a href="drawquiz.php">
+                    <button type="button" class="btn btn-success" autofocus="true">Drawing-Quiz</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
         <div id="firstrow" class="row-fluid">
             <div class="col-xs-4">
                 <button class="btn btn-warning center-block" onclick="">abbrechen</button>

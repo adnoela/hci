@@ -6,8 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>drawing screen</title>
         <meta charset="UTF-8">
+        <title>drawing screen</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>var request = new XMLHttpRequest();</script>
         <script type="text/javascript" src="js/drawing.js"></script>
@@ -16,6 +16,21 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     </head>
     <body onload="init()">
+        <div class="col-xs-12">
+            <div class="btn-group btn-group-justified" role="group">
+                <div class="btn-group" role="group">
+                    <a href="mobilefoto.php">
+                        <button type="button" class="btn btn-primary" disabled="true">Fotostream</button>
+                    </a>
+                </div>
+                <div class="btn-group" role="group">
+                    <a href="drawquiz.php">
+                    <button type="button" class="btn btn-success" autofocus="true">Drawing-Quiz</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
         <div class="row-fluid" style="margin-top: 2%;">
             <div class="col-xs-4">
                 <button class="btn btn-warning center-block" onclick="">abbrechen</button>
