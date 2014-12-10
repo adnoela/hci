@@ -8,10 +8,10 @@ $app_secret = '64d6a3ff543ab0434d4f';
 
 $pusher = new Pusher($app_key, $app_secret, $app_id);
 
-$data['message'] = $_REQUEST["winnerID"];
+//$data['message'] = $_REQUEST[""];
 
 //$data['message'] = 'hello world2';
-$pusher->trigger('quizEndChannel', 'quizEnded', $data);
+$pusher->trigger('quizDrawChannel', 'startDrawing', 'na');
 
 ?>
 <html><body>send time!</body></html>

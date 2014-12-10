@@ -23,10 +23,11 @@ and open the template in the editor.
 
         <script src="lib/Chart.js"></script>
         <!--script type="text/javascript" src="js/barchart.js"></script!-->
+        <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
 
     </head>
 
-    <body onload="nextPage()">
+    <body >
 
         <section id="header">
             <a href="quizscreen.html"> <- Zurück</a>
@@ -51,8 +52,8 @@ and open the template in the editor.
 
         <section id="footer">
             <div id="qr-box">
-                <a href="mobilestart.html">
-                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fmobilestart.html&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
+                <a href="quizmobile.php">
+                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=dacima.esy.es%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
                 </a>
             </div>
         </section>
@@ -82,6 +83,7 @@ and open the template in the editor.
             window.onload = function () {
                 var ctx = document.getElementById("canvas").getContext("2d");
                 window.myBar = new Chart(ctx).Bar(barChartData);
+                nextPage();
             }
 
             function updateChart() {
@@ -91,9 +93,19 @@ and open the template in the editor.
             }
 
             function nextPage() {
+                //alert("next page!");
                 window.setTimeout(function () {
-                    window.location.href = document.getElementById("analysisLink").getAttribute("href");
+                    startDrawing();
+                    window.location.href = "http://dacima.esy.es/index.php";
                 }, 5000);
+            }
+            
+            var request = new XMLHttpRequest();
+          
+            function startDrawing() {
+               // alert("server send quizEndmsg!");
+                request.open('post', "pusherStartDrawing.php", true);
+                request.send(null);
             }
 
 

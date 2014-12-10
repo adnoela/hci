@@ -109,10 +109,10 @@
             </div>
 
             <div id="answers">
-                <button id="answer-A">Sonntag vor Weihnachen</button>
-                <button id="answer-B">Am 24. Dezember</button>
-                <button id="answer-C">Vierte Samstag im Dezember</button>
-                <button id="answer-D">Vierte Sonntag im Dezember</button>
+                <button class="btn-xl btn-primary btn-block" id="answer-A">Sonntag vor Weihnachen</button>
+                <button class="btn-xl btn-primary btn-block" id="answer-B">Am 24. Dezember</button>
+                <button class="btn-xl btn-primary btn-block" id="answer-C">Vierte Samstag im Dezember</button>
+                <button class="btn-xl btn-primary btn-block" id="answer-D">Vierte Sonntag im Dezember</button>
             </div>
 
         </section>
@@ -125,8 +125,8 @@
         </aside>
         <section id="footer">
             <div id="qr-box">
-                <a href="quizmobile.html">
-                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fquizmobile.html&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
+                <a href="quizmobile.php">
+                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=dacima.esy.es%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
                 </a>
             </div>
         </section>
