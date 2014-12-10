@@ -6,10 +6,9 @@ function init() {
     el.addEventListener("touchleave", handleEnd, false);
     el.addEventListener("touchmove", handleMove, false);
     message();
-    //countdown();
 }
 
-var object = "Gitarre";
+var object = "GITARRE";
 var coor = "";
 var color = "black";
 var size = 1;
@@ -89,29 +88,20 @@ function large() {
     coor = "";
 }
 
-
-function countdown(i) {
-    if (i == undefined) {
-        // Startwert
-        i = 5;
-    }
-    document.countdownform.countdowninput.value =
-            "noch " + i + " Sekunden";
-    if (i > 0) {
-        i--;
-        // Funktion verzögert aufrufen
-        window.setTimeout("countdown(" + i + ")", 1000);
-    }
-    else {
-        window.setTimeout(forward(), 5000);
-        alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: " + object
-                + "! Sie werden in 5 Sekunden automatisch weitergeleitet!")
-    }
-}
 var ans;
+var btn;
 function answer(answer) {
     ans = "" + answer;
-    request.open('post', "pusheranswer.php?ans=" + ans, true);
+       
+    btn = document.getElementsByClassName('btn-xl');
+    for (var i=0; i<btn.length;i++){
+        btn[i].disabled="true";
+        btn[i].style.background='#696969';
+    }
+    
+    btn = document.getElementById('btn'+answer);
+    btn.style.background='#FFA500';
+    request.open('post', "pusherdrawans.php?ans=" + ans, true);
     request.send(null);
 }
 
@@ -123,7 +113,59 @@ function message() {
     request.open('post', "pusherSynch.php", true);
     request.send(null);
     alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: " + object
-                + "! Sie haben ab SOFORT 60 Sekunden ZEit");
+                + " \nSie haben ab SOFORT 60 Sekunden Zeit");
+}
+
+function end(){
+    var end = document.getElementById('end');
+        end.style.background='#228B22';
+        end.style.fontSize = "20px";
+        end.innerHTML="Vielen Dank fürs Zeichnen. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
+        end.style.visibility="visible";
+        endtimer(3);
+}
+
+function endtimer (i) {
+  if (i == undefined) {
+    // Startwert
+    i = 10;
+  }
+  
+  if (i > 0) {
+    i--;
+    // Funktion verzögert aufrufen
+    window.setTimeout("endtimer(" + i + ")", 1000);
+  }
+  else
+  {
+      document.location.href = "quizmobile.php";
+  }
+}
+
+function endquiz(){
+    var end = document.getElementById('end');
+        end.style.background='#228B22';
+        end.style.fontSize = "20px";
+        end.innerHTML="Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
+        end.style.visibility="visible";
+        endtimer(3);
+}
+
+function endtimer (i) {
+  if (i == undefined) {
+    // Startwert
+    i = 10;
+  }
+  
+  if (i > 0) {
+    i--;
+    // Funktion verzögert aufrufen
+    window.setTimeout("endtimer(" + i + ")", 1000);
+  }
+  else
+  {
+      document.location.href = "quizmobile.php";
+  }
 }
 
 /*function tempAlert(msg,duration)

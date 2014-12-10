@@ -16,6 +16,7 @@
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+        <script>var request = new XMLHttpRequest();</script>
         <script src="js/maindrawing.js"></script>
         <script type="text/javascript">
             var pusher = new Pusher('85b8dbe2ce68623ad71a');
@@ -78,7 +79,6 @@
                 }
             });
             channel.bind('countdown-event', function (data) {
-                alert("start");
                 countdown();
             })
 
@@ -109,16 +109,16 @@
         </div>
         <div class="col-md-4" style="height:85%; margin-top: -2%; margin-left: 3%;">
             <div class="drawanswer1">
-                <button class="btn-xl btn-primary btn-block" onclick="answer('A')">Tannenbaum</button> 
+                <button id="btnA" class="btn-xl btn-primary btn-block">Tannenbaum</button> 
             </div>
             <div class="drawanswer1">
-                <button class="btn-xl btn-primary btn-block" onclick="answer('B')">Gitarre</button> 
+                <button id="btnB" class="btn-xl btn-primary btn-block">Gitarre</button> 
             </div>
             <div class="drawanswer1">
-                <button class="btn-xl btn-primary btn-block" onclick="answer('C')">Smarthone</button> 
+                <button id="btnC" class="btn-xl btn-primary btn-block">Smarthone</button> 
             </div>
             <div class="drawanswer1">
-                <button class="btn-xl btn-primary btn-block" onclick="answer('D')">Pizzaschneider</button> 
+                <button id="btnD" class="btn-xl btn-primary btn-block">Pizzaschneider</button> 
             </div>
         </div>
         <div class="qrBox">
@@ -127,7 +127,7 @@
             </a>
         </div>
 
-
+        <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
     </body>
 </html>
 <!--
