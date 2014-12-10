@@ -38,10 +38,10 @@ and open the template in the editor.
             </div>
 
             <div id="answers">
-                <button id="answer-A" onclick="sendAnswer('A')">Vierte Sonntag im Dezember</button>
+                <button id="answer-A" onclick="sendAnswer('A')">Sonntag vor Weihnachen</button>
                 <button id="answer-B" onclick="sendAnswer('B')">Am 24. Dezember</button>
                 <button id="answer-C" onclick="sendAnswer('C')">Vierte Samstag im Dezember</button>
-                <button id="answer-D" onclick="sendAnswer('D')">Sonntag vor Weihnachen</button>
+                <button id="answer-D" onclick="sendAnswer('D')">Vierte Sonntag im Dezember</button>
             </div>
 
         </section>

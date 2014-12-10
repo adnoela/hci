@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+            var max = 100;
+            var counter = 100;
+            var interval = 300;
+
+            function countdown() {
+                var bar = document.getElementById("pbarTimer");
+                setInterval(function () {
+                    counter = counter - (interval/1000);
+                    bar.value = counter;
+
+                },interval)
+            }
+        </script>
+
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+        <progress id="pbarTimer" value="100" max="100"></progress>
+        <button onclick="countdown()">counter down</button>
+        
+    </body>
+</html>

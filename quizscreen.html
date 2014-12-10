@@ -20,6 +20,7 @@ and open the template in the editor.
             var right = 0;
             var wrong = 0;
             var percent = 0;
+            var acceptAnswers = true;
 
             // Enable pusher logging - don't include this in production
             Pusher.log = function (message) {
@@ -32,6 +33,7 @@ and open the template in the editor.
             var channel = pusher.subscribe('channel1');
             channel.bind('answer', function (data) {
                 //alert(data.message);
+                if(acceptAnswers) {
                 if (data.message == "A") {
                     right++;
                 } else {
@@ -40,16 +42,44 @@ and open the template in the editor.
                 //alert("right: " + right + ", wrong: " + wrong);
                 document.getElementById("rightAnswers").textContent = right.toString();
                 document.getElementById("wrongAnswers").textContent = wrong.toString();
-                
-                percent = (right)/(right + wrong) * 100;
+
+                percent = (right) / (right + wrong) * 100;
                 document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
-            });
+            }    
+        });
+
+            var seconds = 20;
+            var max = 100;
+            var counter = 100;
+            var interval = 250;
+            var x = max/seconds*(interval/1000);
+
+            function countdown() {
+                var bar = document.getElementById("pbarTimer");
+                setInterval(function () {
+                    if(counter - x >=0) {
+                    counter = counter - x;
+                    bar.value = counter;
+                } else {
+                    interval = 100000;
+                    showRightAnswer();
+                }
+
+                }, interval)
+            }
             
-            
+            function showRightAnswer() {
+                acceptAnswers = false;
+                var button = document.getElementById("answer-A");
+                button.style.backgroundColor = "#00FF00";
+            }
+
+
+
         </script>
 
     </head>
-    <body>
+    <body onload="countdown()">
         <section id="header">
             <a href="index.html"> <- Index</a>
             <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
@@ -60,14 +90,14 @@ and open the template in the editor.
             <h2 id="question"> Wann ist der vierte Advent?  </h2>
 
             <div id="quiz-time">
-                <progress value="100" max="100"></progress>
+                <progress id="pbarTimer" value="100" max="100"></progress>
             </div>
 
             <div id="answers">
-                <button id="answer-A">Vierte Sonntag im Dezember</button>
+                <button id="answer-A">Sonntag vor Weihnachen</button>
                 <button id="answer-B">Am 24. Dezember</button>
                 <button id="answer-C">Vierte Samstag im Dezember</button>
-                <button id="answer-D">Sonntag vor Weihnachen</button>
+                <button id="answer-D">Vierte Sonntag im Dezember</button>
             </div>
 
         </section>
