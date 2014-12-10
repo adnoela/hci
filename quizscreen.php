@@ -45,9 +45,9 @@
             });
 
             var request = new XMLHttpRequest();
-          
+
             function quizEndMsg(winnerID) {
-               // alert("server send quizEndmsg!");
+                // alert("server send quizEndmsg!");
                 request.open('post', "pusherQuizEnded.php?winnerID=" + winnerID, true);
                 request.send(null);
             }
@@ -66,8 +66,8 @@
                 var bar = document.getElementById("pbarTimer");
                 var cint = setInterval(function () {
                     if (counter - x < 0 || (new Date().getTime() >= endTime)) {
-                        bar.value = 0;
-                        
+                        bar.style.width = 0;
+
                         showRightAnswer();
                         quizEndMsg("na");
                         window.setTimeout(function () {
@@ -77,7 +77,7 @@
 
                     } else {
                         counter = counter - x;
-                        bar.value = counter;
+                        bar.style.width = counter + "%";
                     }
 
                 }, interval)
@@ -104,8 +104,8 @@
         <section id="content">
             <h2 id="question"> Wann ist der vierte Advent?  </h2>
 
-            <div id="quiz-time">
-                <progress id="pbarTimer" value="100" max="100"></progress>
+            <div id="pbarTimer" class="progress">
+                <div class="bar" style="width: 100%;"></div>
             </div>
 
             <div id="answers">
