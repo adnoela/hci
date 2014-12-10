@@ -26,7 +26,7 @@ and open the template in the editor.
 
     </head>
 
-    <body>
+    <body onload="nextPage()">
 
         <section id="header">
             <a href="quizscreen.html"> <- Zurück</a>
@@ -65,7 +65,7 @@ and open the template in the editor.
             var rat = <?php echo $Rat; ?>;
             var spi = <?php echo $Spi; ?>;
             var myData = [akh, kar, rat, spi];
-            
+
             var barChartData = {
                 labels: locations,
                 datasets: [
@@ -88,6 +88,12 @@ and open the template in the editor.
                 //update bar1
                 myBar.datasets[0].bars[0].value = 50;
                 myBar.update();
+            }
+
+            function nextPage() {
+                window.setTimeout(function () {
+                    window.location.href = document.getElementById("analysisLink").getAttribute("href");
+                }, 5000);
             }
 
 

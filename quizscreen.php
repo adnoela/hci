@@ -1,6 +1,4 @@
-<?php
-$startTime = round(microtime(true) * 1000);
-?>
+
 
 <html>
     <head>
@@ -46,22 +44,37 @@ $startTime = round(microtime(true) * 1000);
                 }
             });
 
-            var startTime = <?php echo $startTime; ?>;
-            var timeNow = new Date().getTime();
+            var request = new XMLHttpRequest();
+          
+            function quizEndMsg(winnerID) {
+               // alert("server send quizEndmsg!");
+                request.open('post', "pusherQuizEnded.php?winnerID=" + winnerID, true);
+                request.send(null);
+            }
+
+
+            var startTime = new Date().getTime();
             var seconds = 20;
+            var endTime = startTime + seconds * 1000;
+
             var max = 100;
-            var counter = max - (timeNow - startTime) / 1000;
+            var counter = max;
             var interval = 100;
             var x = max / seconds * (interval / 1000);
 
             function countdown() {
                 var bar = document.getElementById("pbarTimer");
-                setInterval(function () {
-                    if (counter - x < 0) {
-
-                        interval = 100000;
+                var cint = setInterval(function () {
+                    if (counter - x < 0 || (new Date().getTime() >= endTime)) {
                         bar.value = 0;
+                        
                         showRightAnswer();
+                        quizEndMsg("na");
+                        window.setTimeout(function () {
+                            window.location.href = document.getElementById("analysisLink").getAttribute("href");
+                        }, 3000);
+                        clearInterval(cint);
+
                     } else {
                         counter = counter - x;
                         bar.value = counter;
