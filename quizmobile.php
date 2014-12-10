@@ -5,8 +5,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
- // CAN BE DELETED!
-
 <html>
     <head>
         <title>Quiz</title>
@@ -16,6 +14,16 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
+
+        <script>
+            var request = new XMLHttpRequest();
+
+            function sendAnswer(answer) {
+                request.open('post', "pusherAnswer.php?input=" + answer, true);
+                request.send(null);
+            }
+        </script>
+
     </head>
     <body>
         <section id="header">
@@ -24,21 +32,20 @@ and open the template in the editor.
 
         <section id="content">
             <h2 id="question"> Wann ist der vierte Advent?  </h2>
-            
+
             <div id="quiz-time">
                 <progress value="100" max="100"></progress>
             </div>
-            
+
             <div id="answers">
-            <button id="answer-A">Vierte Sonntag im Dezember</button>
-            <button id="answer-B">Am 24. Dezember</button>
-            <button id="answer-C">Vierte Samstag im Dezember</button>
-            <button id="answer-D">Sonntag vor Weihnachen</button>
+                <button id="answer-A" onclick="sendAnswer('A')">Vierte Sonntag im Dezember</button>
+                <button id="answer-B" onclick="sendAnswer('B')">Am 24. Dezember</button>
+                <button id="answer-C" onclick="sendAnswer('C')">Vierte Samstag im Dezember</button>
+                <button id="answer-D" onclick="sendAnswer('D')">Sonntag vor Weihnachen</button>
             </div>
 
         </section>
-        
-        
+
 
     </body>
 </html>

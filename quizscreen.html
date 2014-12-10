@@ -13,35 +13,71 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
+
+
+        <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var right = 0;
+            var wrong = 0;
+            var percent = 0;
+
+            // Enable pusher logging - don't include this in production
+            Pusher.log = function (message) {
+                if (window.console && window.console.log) {
+                    window.console.log(message);
+                }
+            };
+
+            var pusher = new Pusher('436afa5718199f3db91b');
+            var channel = pusher.subscribe('channel1');
+            channel.bind('answer', function (data) {
+                //alert(data.message);
+                if (data.message == "A") {
+                    right++;
+                } else {
+                    wrong++;
+                }
+                //alert("right: " + right + ", wrong: " + wrong);
+                document.getElementById("rightAnswers").textContent = right.toString();
+                document.getElementById("wrongAnswers").textContent = wrong.toString();
+                
+                percent = (right)/(right + wrong) * 100;
+                document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
+            });
+            
+            
+        </script>
+
     </head>
     <body>
         <section id="header">
             <a href="index.html"> <- Index</a>
-            <a href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
+            <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
             <h1> QUIZ </h1>            
         </section>
 
         <section id="content">
             <h2 id="question"> Wann ist der vierte Advent?  </h2>
-            
+
             <div id="quiz-time">
                 <progress value="100" max="100"></progress>
             </div>
-            
+
             <div id="answers">
-            <button id="answer-A">Vierte Sonntag im Dezember</button>
-            <button id="answer-B">Am 24. Dezember</button>
-            <button id="answer-C">Vierte Samstag im Dezember</button>
-            <button id="answer-D">Sonntag vor Weihnachen</button>
+                <button id="answer-A">Vierte Sonntag im Dezember</button>
+                <button id="answer-B">Am 24. Dezember</button>
+                <button id="answer-C">Vierte Samstag im Dezember</button>
+                <button id="answer-D">Sonntag vor Weihnachen</button>
             </div>
 
         </section>
 
         <aside id="community">
             <p>TODO: Community Info</p>
+            <p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label>
+            </p>
 
         </aside>
-
         <section id="footer">
             <div id="qr-box">
                 <a href="quizmobile.html">
@@ -49,5 +85,7 @@ and open the template in the editor.
                 </a>
             </div>
         </section>
+
+
     </body>
 </html>
