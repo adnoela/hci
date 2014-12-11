@@ -43,16 +43,19 @@
                 showRightAnswer();
                 if (id == php_var)
                 {
-                    window.location.href = "http://dacima.esy.es/drawing.php";
+                    // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
+                      window.location.href = "http://dacima.lima-city.de/drawing.php";
                 }
                 else
                 {
-                    window.location.href = "http://dacima.esy.es/drawquiz.php";
+                    //setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawquiz.php"; }, 3000);
+
+                    window.location.href = "http://dacima.lima-city.de/drawquiz.php";
                 }
             }
 
             function startDrawing() {
-                window.location.href = "http://dacima.esy.es/drawquiz.php";
+                window.location.href = "http://dacima.lima-city.de/drawquiz.php";
             }
 
 

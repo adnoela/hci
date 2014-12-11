@@ -53,7 +53,7 @@ and open the template in the editor.
         <section id="footer">
             <div id="qr-box">
                 <a href="quizmobile.php">
-                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=dacima.esy.es%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
+<img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               
                 </a>
             </div>
         </section>
@@ -96,7 +96,7 @@ and open the template in the editor.
                 //alert("next page!");
                 window.setTimeout(function () {
                     startDrawing();
-                    window.location.href = "http://dacima.esy.es/index.php";
+                    window.location.href = "http://dacima.lima-city.de/index.php";
                 }, 5000);
             }
             

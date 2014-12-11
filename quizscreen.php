@@ -61,7 +61,7 @@
 
 
             var startTime = new Date().getTime();
-            var seconds = 20;
+            var seconds = 60;
             var endTime = startTime + seconds * 1000;
 
             var max = 100;
@@ -133,8 +133,7 @@
         <section id="footer">
             <div id="qr-box">
                 <a href="quizmobile.php">
-                    <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=dacima.esy.es%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
-                </a>
+                <img id="code"  src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />                </a>
             </div>
         </section>
 
