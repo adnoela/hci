@@ -1,4 +1,4 @@
-
+<?php include 'session.php' ?>
 <html>
     <head>
         <title>Quiz</title>
@@ -11,17 +11,16 @@
 
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script>
-
+            var php_var = '<?php echo session_id(); ?>';
 
             var pusher = new Pusher('436afa5718199f3db91b');
             var answerChannel = pusher.subscribe('quizEndChannel');
             answerChannel.bind('quizEnded', function (data) {
-                //alert("quiz ended!")
-                endQuiz(data.message);
+                endQuiz(data.message.toString());
             });
-            
-            var answerChannel = pusher.subscribe('quizDrawChannel');
-            answerChannel.bind('startDrawing', function (data) {
+
+            var drawChannel = pusher.subscribe('quizDrawChannel');
+            drawChannel.bind('startDrawing', function (data) {
                 //alert("start drawing!");
                 startDrawing();
             });
@@ -30,7 +29,7 @@
             var request = new XMLHttpRequest();
 
             function sendAnswer(answer) {
-                request.open('post', "pusherAnswer.php?input=" + answer, true);
+                request.open('post', "pusherAnswer.php?input=" + answer + "E" + php_var, true);
                 request.send(null);
 
                 //document.getElementById("answer-A").disabled = true;
@@ -39,14 +38,19 @@
                 //document.getElementById("answer-D").disabled = true;
             }
 
-            function endQuiz(winnerID) {
+            function endQuiz(id) {
                 //TODO: check if this is the winner!
                 showRightAnswer();
-                //window.setTimeout(function () {
-                //    window.location.href = "http://dacima.esy.es/drawquiz.php";
-                //}, 8000);
+                if (id == php_var)
+                {
+                    window.location.href = "http://dacima.esy.es/drawing.php";
+                }
+                else
+                {
+                    window.location.href = "http://dacima.esy.es/drawquiz.php";
+                }
             }
-            
+
             function startDrawing() {
                 window.location.href = "http://dacima.esy.es/drawquiz.php";
             }
@@ -65,7 +69,7 @@
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group" role="group">
                     <a href="mobilefoto.php">
-                    <button type="button" class="btn btn-primary">Fotostream</button>
+                        <button type="button" class="btn btn-primary">Fotostream</button>
                     </a>
                 </div>
                 <div class="btn-group" role="group">
@@ -76,7 +80,7 @@
         <div id="firstrow" class="row-fluid">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
-                    <h2 id="question"> Wann ist der vierte Advent?  </h2>
+                <h2 id="question"> Wann ist der vierte Advent?  </h2>
             </div>
             <div class="col-xs-4"></div>
         </div>

@@ -17,6 +17,8 @@
             var wrong = 0;
             var percent = 0;
             var acceptAnswers = true;
+            var winnerDetected = false;
+            var winnerID = "";
 
             // Enable pusher logging - don't include this in production
             Pusher.log = function (message) {
@@ -28,10 +30,15 @@
             var pusher = new Pusher('436afa5718199f3db91b');
             var channel = pusher.subscribe('channel1');
             channel.bind('answer', function (data) {
-                //alert(data.message);
+                var mes = data.message.toString().split('E');
                 if (acceptAnswers) {
-                    if (data.message == "A") {
+                    if (mes[0] == "A") {
                         right++;
+                        if(!winnerDetected)
+                        {
+                            winnerDetected = true;
+                            winnerID = mes[1];
+                        }
                     } else {
                         wrong++;
                     }
@@ -46,9 +53,9 @@
 
             var request = new XMLHttpRequest();
 
-            function quizEndMsg(winnerID) {
-                // alert("server send quizEndmsg!");
-                request.open('post', "pusherQuizEnded.php?winnerID=" + winnerID, true);
+            function quizEndMsg(id) {
+                //alert("server send quizEndmsg!");
+                request.open('post', "pusherQuizEnded.php?winnerID=" + id, true);
                 request.send(null);
             }
 
@@ -69,7 +76,7 @@
                         bar.style.width = 0;
 
                         showRightAnswer();
-                        quizEndMsg("na");
+                        quizEndMsg(winnerID);
                         window.setTimeout(function () {
                             window.location.href = document.getElementById("analysisLink").getAttribute("href");
                         }, 3000);

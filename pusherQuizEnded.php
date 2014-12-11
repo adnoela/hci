@@ -14,4 +14,3 @@ $data['message'] = $_REQUEST["winnerID"];
 $pusher->trigger('quizEndChannel', 'quizEnded', $data);
 
 ?>
-<html><body>send time!</body></html>
