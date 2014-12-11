@@ -1,4 +1,4 @@
-
+<?php include 'sessionscreen.php'; ?>
 
 <html>
     <head>

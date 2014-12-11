@@ -8,7 +8,7 @@ function init() {
     message();
 }
 
-var object = "GITARRE";
+var object = "TANNENBAUM";
 var coor = "";
 var color = "black";
 var size = 1;
@@ -113,7 +113,7 @@ function message() {
     request.open('post', "pusherSynch.php", true);
     request.send(null);
     alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: " + object
-                + " \nSie haben ab SOFORT 60 Sekunden Zeit");
+                + " \nSie haben ab SOFORT 120 Sekunden Zeit");
 }
 
 function end(){

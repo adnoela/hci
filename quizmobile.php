@@ -1,4 +1,4 @@
-<?php include 'session.php' ?>
+<?php include 'sessionmobile.php'; ?>
 <html>
     <head>
         <title>Quiz</title>

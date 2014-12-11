@@ -1,5 +1,6 @@
 
 <?php
+include 'sessionscreen.php';
 $Akh = $_GET["Akh"];
 $Kar = $_GET["Kar"];
 $Rat = $_GET["Rat"];

@@ -1,3 +1,4 @@
+<?php include 'sessionmobile.php'; ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -43,7 +44,7 @@ and open the template in the editor.
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
-                    <h4>Objekt: Gitarre</h4>
+                    <h4>Objekt: Tannenbaum</h4>
                 </div>
             </div>
             <div class="col-xs-4"></div>
