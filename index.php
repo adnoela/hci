@@ -79,7 +79,7 @@
                 }
             });
             channel.bind('countdown-event', function (data) {
-                countdown();
+                countdown(120);
             })
 
 
@@ -97,17 +97,20 @@
             </div>
             <div class="col-md-3" style="margin-top:1%;">
                 <form name="countdownform">
-                    <input id="input" name="countdown" size="30" value="Verbleibende Zeit: 60 Sekunden">
+                    <input id="input" name="countdown" style="font-size: 2em;" size="25" value="Verbleibende Zeit: 60 Sekunden">
                 </form>
                 <form name="counterform">
-                    <input id="input" name="counter" size="30" value="Richtige Antworten: 0">
+                    <input id="input" name="counter" style="font-size: 2em;" value="Richtige Antworten: 0">
+                </form>
+                <form name="benoetigt">
+                    <input id="input" name="noetig" style="font-size: 2em;" value="                 benötigt: 2">
                 </form>
             </div>
         </div>
         <div class="canvasBox">
             <canvas id="canvas" style="border: 2px solid;"></canvas>
         </div>
-        <div class="col-md-4" style="height:85%; margin-top: -2%; margin-left: 3%;">
+        <div class="col-md-4" style="height:85%; margin-left: 3%;">
             <div class="drawanswer1">
                 <button id="btnA" class="btn-xl btn-primary btn-block">Tannenbaum</button> 
             </div>
@@ -122,8 +125,9 @@
             </div>
         </div>
         <div class="qrBox">
+           
             <a href="drawquiz.php" style>
-                <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.esy.es%2Fdrawquiz.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />            
+                 <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fdrawquiz.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />            
             </a>
         </div>
 

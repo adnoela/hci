@@ -11,7 +11,7 @@ canvas.height = canvas.width;
 function countdown (i) {
   if (i == undefined) {
     // Startwert
-    i = 60;
+    i = 120;
   }
   document.countdownform.countdown.value =
           "Verbleibende Zeit: "+i+" Sekunden";
