@@ -46,6 +46,16 @@ if ($_SESSION['currentpage'] === "quiz") {
             var request = new XMLHttpRequest();
 
             function sendAnswer(answer) {
+
+                var btn = document.getElementsByClassName('btn-x2');
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].disabled = "true";
+                    btn[i].style.background = '#696969';
+                }
+
+                btn = document.getElementById('btn' + answer);
+                btn.style.background = '#FFA500';
+
                 request.open('post', "pusherAnswer.php?input=" + answer + "E" + php_var, true);
                 request.send(null);
 
@@ -57,7 +67,7 @@ if ($_SESSION['currentpage'] === "quiz") {
 
             function endQuiz(id) {
                 //TODO: check if this is the winner!
-                showRightAnswer();
+                showRightAnswer('A');
                 if (id == php_var)
                 {
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
@@ -76,9 +86,9 @@ if ($_SESSION['currentpage'] === "quiz") {
             }
 
 
-            function showRightAnswer() {
-                var button = document.getElementById("answer-A");
-                button.style.backgroundColor = "#00FF00";
+            function showRightAnswer(rightAnswer) {
+                var button = document.getElementById('btn' + rightAnswer);
+                button.style.background = "#00FF00";
             }
 
         </script>
@@ -100,21 +110,30 @@ if ($_SESSION['currentpage'] === "quiz") {
         <div id="firstrow" class="row-fluid">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
-                <h2 id="question"> Wann ist der vierte Advent?  </h2>
+                <div class="text-center"> 
+                    <h3>Wann ist der vierte Advent? </h3>
+                </div>           
             </div>
             <div class="col-xs-4"></div>
         </div>
         <div class="quizanswers">
 
-            <div id="answers">
-                <button class="btn-xl btn-primary btn-block" id="answer-A" onclick="sendAnswer('A')">Sonntag vor Weihnachen</button>
-                <button class="btn-xl btn-primary btn-block" id="answer-B" onclick="sendAnswer('B')">Am 24. Dezember</button>
-                <button class="btn-xl btn-primary btn-block" id="answer-C" onclick="sendAnswer('C')">Vierte Samstag im Dezember</button>
-                <button class="btn-xl btn-primary btn-block" id="answer-D" onclick="sendAnswer('D')">Vierte Sonntag im Dezember</button>
+            <div class="qanswer">
+                <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')">Sonntag vor Weihnachen</button>
             </div>
-
+            <div class="qanswer">
+                <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')">Am 24. Dezember</button>
+            </div>
+            <div class="qanswer">
+                <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')">Vierte Samstag im Dezember</button>
+            </div>
+            <div class="qanswer">
+                <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')">Vierte Sonntag im Dezember</button>
+            </div>
         </div>
 
+    </div>
 
-    </body>
+
+</body>
 </html>
