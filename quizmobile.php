@@ -1,4 +1,21 @@
-<?php include 'sessionmobile.php'; ?>
+<?php
+include 'sessionmobile.php';
+if ($_SESSION['currentpage'] === "quiz") {
+    
+} elseif ($_SESSION['currentpage'] === "drawquiz") {
+    if ($_SESSION['drawing']) {
+        header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/drawing.php');
+        exit;
+    } else {
+        
+    }
+    exit;
+}
+//} elseif ($_SESSION['currentpage'] === "drawquiz") {
+//    header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/drawquiz.php');
+//    exit;
+//}
+?>
 <html>
     <head>
         <title>Quiz</title>
@@ -44,7 +61,7 @@
                 if (id == php_var)
                 {
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
-                      window.location.href = "http://dacima.lima-city.de/drawing.php";
+                    window.location.href = "http://dacima.lima-city.de/drawing.php";
                 }
                 else
                 {

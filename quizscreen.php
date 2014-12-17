@@ -1,4 +1,10 @@
-<?php include 'sessionscreen.php'; ?>
+<?php 
+session_start();
+
+$myfile = fopen("status.txt", "w+");
+fwrite($myfile, "quiz");
+fclose($myfile);
+?>
 
 <html>
     <head>
@@ -105,7 +111,10 @@
         <section id="header">
             <a href="index.html"> <- Index</a>
             <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
-            <h1> QUIZ </h1>            
+            <h1> QUIZ <?php $myfile = fopen("status.txt", "r");
+$_SESSION['currentpage'] = fgets($myfile);
+fclose($myfile); 
+echo $_SESSION['currentpage']; ?></h1>            
         </section>
 
         <section id="content">

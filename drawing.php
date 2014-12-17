@@ -1,4 +1,20 @@
-<?php include 'sessionmobile.php'; ?>
+<?php 
+session_start();
+$myfile = fopen("status.txt", "r");
+$_SESSION['currentpage'] = fgets($myfile);
+$_SESSION['drawing'] = FALSE;
+fclose($myfile);
+
+if ($_SESSION['currentpage'] === "quiz") {
+    header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/quizmobile.php');
+        exit;
+} elseif ($_SESSION['currentpage'] === "drawquiz") {
+    if ($_SESSION['drawing']) {
+    } else {
+        header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/drawquiz.php');
+    }
+    exit;
+}?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -44,7 +60,7 @@ and open the template in the editor.
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
-                    <h4>Objekt: Tannenbaum</h4>
+                    <h4>Objekt: Tannenbaum <?php echo $_SESSION['currentpage'] ?></h4>
                 </div>
             </div>
             <div class="col-xs-4"></div>
