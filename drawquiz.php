@@ -23,6 +23,39 @@ and open the template in the editor.
                 endquiz();
             });
             
+            //TODO php var setzen
+            var drawingNumber = 0;
+            var answers = new Array(3);
+            answers[0] = [
+                "A",
+                "Weihnachtsbaum",
+                "Tannenzweig",
+                "Maibaum",
+                "Eiszapfen"
+            ];
+            answers[1] = [
+                "C",
+                "Weihnachtsmann",
+                "Nikolaus",
+                "Elf",
+                "Goblin"
+            ];
+            answers[2] = [
+                "D",
+                "Geschenkspapier",
+                "Geschenk",
+                "Schleife",
+                "Geschenksband"
+            ];
+            var rightA;
+            function setQandA () {
+                document.getElementById("btnA").innerHTML = answers[drawingNumber][1];
+                document.getElementById("btnB").innerHTML = answers[drawingNumber][2];
+                document.getElementById("btnC").innerHTML = answers[drawingNumber][3];
+                document.getElementById("btnD").innerHTML = answers[drawingNumber][4];
+                rightA = answers[drawingNumber][0];
+            }
+            
             
         </script>
     </head>
