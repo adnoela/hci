@@ -6,12 +6,12 @@ $_SESSION['drawing'] = FALSE;
 fclose($myfile);
 
 if ($_SESSION['currentpage'] === "quiz") {
-    header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/quizmobile.php');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) . '/quizmobile.php');
         exit;
 } elseif ($_SESSION['currentpage'] === "drawquiz") {
     if ($_SESSION['drawing']) {
     } else {
-        header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/drawquiz.php');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) . '/drawquiz.php');
     }
     exit;
 }?>
