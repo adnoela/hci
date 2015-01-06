@@ -45,7 +45,7 @@ and open the template in the editor.
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
-                    <h4>Paint-Quiz</h4>
+                    <h4>Was wird gezeichnet?</h4>
                 </div>
             </div>
             <div class="col-xs-4"></div>

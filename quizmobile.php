@@ -24,11 +24,75 @@ if ($_SESSION['currentpage'] === "quiz") {
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
 
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script>
             var php_var = '<?php echo session_id(); ?>';
+
+            //TODO php var setzen
+            var qaNumber = 1;
+            var questions = [
+                "Wann ist der vierte Advent?",
+                "Wo wurde Jesus geboren?",
+                "Wie lange haben die Christkindlmärkte offen?",
+                "Welche Aussage über den Schneemann ist falsch?",
+                "Was ist kein Wintermarkt-Getränk?",
+                "Wie heißen nach einem alten Brauch am 4. Dez geschnittene Zweige?"
+            ];
+            var answers = new Array(4);
+            answers[0] = [
+                "A",
+                "Sonntag vor Weihnachten",
+                "Am 24. Dezember",
+                "Viete Samstag im Dezember",
+                "Vierte Sonntag im Dezember"
+            ];
+            answers[1] = [
+                "B",
+                "Jerusalem",
+                "Bethlehem",
+                "Nazareth",
+                "Jericho"
+            ];
+            answers[2] = [
+                "A",
+                "Bis zum 24. Dezember",
+                "Bis Silvester",
+                "Bis zum 4. Advent",
+                "Bis Ende Jänner"
+            ];
+            answers[3] = [
+                "D",
+                "Er repräsentierte früher den Winter",
+                "Er hat meistens eine Karotten-Nase",
+                "Augen bestehen aus Kieselsteinen oder Kohlen",
+                "Muss mindestens 1,5m hoch sein"
+            ];
+            answers[4] = [
+                "C",
+                "Jagatee",
+                "Feuerzangenbowle",
+                "Mojito",
+                "Lumbumba"
+            ];
+            answers[5] = [
+                "B",
+                "Annazweige",
+                "Barbarazweige",
+                "Biancazweige",
+                "Mariazweige"
+            ];
+            
+            var rightA;
+            function setQandA () {
+                document.getElementById("question").innerHTML = questions[qaNumber];
+                document.getElementById("btnA").innerHTML = answers[qaNumber][1];
+                document.getElementById("btnB").innerHTML = answers[qaNumber][2];
+                document.getElementById("btnC").innerHTML = answers[qaNumber][3];
+                document.getElementById("btnD").innerHTML = answers[qaNumber][4];
+                rightA = answers[qaNumber][0];
+            }
 
             var pusher = new Pusher('436afa5718199f3db91b');
             var answerChannel = pusher.subscribe('quizEndChannel');
@@ -58,16 +122,12 @@ if ($_SESSION['currentpage'] === "quiz") {
 
                 request.open('post', "pusherAnswer.php?input=" + answer + "E" + php_var, true);
                 request.send(null);
-
-                //document.getElementById("answer-A").disabled = true;
-                //document.getElementById("answer-B").disabled = true;
-                //document.getElementById("answer-C").disabled = true;
-                //document.getElementById("answer-D").disabled = true;
             }
+            
 
             function endQuiz(id) {
                 //TODO: check if this is the winner!
-                showRightAnswer('A');
+                showRightAnswer(rightA);
                 if (id == php_var)
                 {
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
@@ -94,7 +154,7 @@ if ($_SESSION['currentpage'] === "quiz") {
         </script>
 
     </head>
-    <body>
+    <body onload ="setQandA()" >
         <div class="col-xs-12">
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group" role="group">
@@ -110,27 +170,25 @@ if ($_SESSION['currentpage'] === "quiz") {
         <div id="firstrow" class="row-fluid">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
-                <div class="text-center"> 
-                    <h3>Wann ist der vierte Advent? </h3>
+                <div class="text-justify"> 
+                    <h4 id="question">abc</h4>
                 </div>           
             </div>
             <div class="col-xs-4"></div>
         </div>
-        <div class="quizanswers">
 
             <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')">Sonntag vor Weihnachen</button>
+                <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
             </div>
             <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')">Am 24. Dezember</button>
+                <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')"></button>
             </div>
             <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')">Vierte Samstag im Dezember</button>
+                <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')"></button>
             </div>
             <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')">Vierte Sonntag im Dezember</button>
+                <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')"></button>
             </div>
-        </div>
 
     </div>
 
