@@ -1,9 +1,39 @@
 <?php 
 session_start();
+$currentpage = file_get_contents('quizstatus.txt');
+if(empty($currentpage))
+{
+    file_put_contents('quizstatus.txt', 'quiz0');
+    $quiz = file_get_contents("quizstatus.txt");
+    exit();
+}
 
-$myfile = fopen("status.txt", "w+");
-fwrite($myfile, "quiz");
-fclose($myfile);
+if(substr($currentpage, -1) == 0)
+{
+    file_put_contents('quizstatus.txt', 'quiz1');
+}
+else if(substr($currentpage, -1) == 1)
+{
+    file_put_contents('quizstatus.txt', 'quiz2');
+}
+else if(substr($currentpage, -1) == 2)
+{
+    file_put_contents('quizstatus.txt', 'quiz3');
+}
+else if(substr($currentpage, -1) == 3)
+{
+    file_put_contents('quizstatus.txt', 'quiz4');
+}
+else if(substr($currentpage, -1) == 4)
+{
+    file_put_contents('quizstatus.txt', 'quiz5');
+}
+else if(substr($currentpage, -1) == 5)
+{
+    file_put_contents('quizstatus.txt', 'quiz0');
+}
+$quiz = file_get_contents("quizstatus.txt");
+
 ?>
 
 <html>
@@ -20,7 +50,7 @@ fclose($myfile);
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             //TODO via php richtige fragennr setzen
-            var qaNumber = 1;
+            var qaNumber = <?php echo substr($quiz, -1); ?>;
             var questions = [
                 "Wann ist der vierte Advent?",
                 "Wo wurde Jesus geboren?",
@@ -29,7 +59,7 @@ fclose($myfile);
                 "Was ist kein Wintermarkt-Getränk?",
                 "Wie heißen nach einem alten Brauch am 4. Dez geschnittene Zweige?"
             ];
-            var answers = new Array(4);
+            var answers = new Array(6);
             answers[0] = [
                 "A",
                 "Sonntag vor Weihnachten",
@@ -179,7 +209,7 @@ fclose($myfile);
         <section id="header">
             <a href="index.html"> <- Index</a>
             <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
-            <h1> QUIZ </h1>            
+            <h1> QUIZ <?php echo substr($quiz, -1); ?></h1>            
         </section>
 
         <section id="content">
