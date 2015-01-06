@@ -19,6 +19,70 @@ fclose($myfile);
 
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script type="text/javascript">
+            //TODO via php richtige fragennr setzen
+            var qaNumber = 1;
+            var questions = [
+                "Wann ist der vierte Advent?",
+                "Wo wurde Jesus geboren?",
+                "Wie lange haben die Christkindlmärkte offen?",
+                "Welche Aussage über den Schneemann ist falsch?",
+                "Was ist kein Wintermarkt-Getränk?",
+                "Wie heißen nach einem alten Brauch am 4. Dez geschnittene Zweige?"
+            ];
+            var answers = new Array(4);
+            answers[0] = [
+                "A",
+                "Sonntag vor Weihnachten",
+                "Am 24. Dezember",
+                "Viete Samstag im Dezember",
+                "Vierte Sonntag im Dezember"
+            ];
+            answers[1] = [
+                "B",
+                "Jerusalem",
+                "Bethlehem",
+                "Nazareth",
+                "Jericho"
+            ];
+            answers[2] = [
+                "A",
+                "Bis zum 24. Dezember",
+                "Bis Silvester",
+                "Bis zum 4. Advent",
+                "Bis Ende Jänner"
+            ];
+            answers[3] = [
+                "D",
+                "Er repräsentierte früher den Winter",
+                "Er hat meistens eine Karotten-Nase",
+                "Augen bestehen aus Kieselsteinen oder Kohlen",
+                "Muss mindestens 1,5m hoch sein"
+            ];
+            answers[4] = [
+                "C",
+                "Jagatee",
+                "Feuerzangenbowle",
+                "Mojito",
+                "Lumbumba"
+            ];
+            answers[5] = [
+                "B",
+                "Annazweige",
+                "Barbarazweige",
+                "Biancazweige",
+                "Mariazweige"
+            ];
+            
+            var rightA;
+            function setQandA () {
+                document.getElementById("question").innerHTML = questions[qaNumber];
+                document.getElementById("answer-A").innerHTML = answers[qaNumber][1];
+                document.getElementById("answer-B").innerHTML = answers[qaNumber][2];
+                document.getElementById("answer-C").innerHTML = answers[qaNumber][3];
+                document.getElementById("answer-D").innerHTML = answers[qaNumber][4];
+                rightA = answers[qaNumber][0];
+            }
+                        
             var right = 0;
             var wrong = 0;
             var percent = 0;
@@ -38,7 +102,7 @@ fclose($myfile);
             channel.bind('answer', function (data) {
                 var mes = data.message.toString().split('E');
                 if (acceptAnswers) {
-                    if (mes[0] == "A") {
+                    if (mes[0] == rightA) {
                         right++;
                         if(!winnerDetected)
                         {
@@ -67,7 +131,7 @@ fclose($myfile);
 
 
             var startTime = new Date().getTime();
-            var seconds = 60;
+            var seconds = 20;
             var endTime = startTime + seconds * 1000;
 
             var max = 100;
@@ -98,27 +162,28 @@ fclose($myfile);
 
             function showRightAnswer() {
                 acceptAnswers = false;
-                var button = document.getElementById("answer-A");
+                var button = document.getElementById("answer-"+rightA);
                 button.style.backgroundColor = "#00FF00";
             }
-
+            
+            function startFunction() {
+                countdown();
+                setQandA();
+            }
 
 
         </script>
 
     </head>
-    <body onload="countdown()">
+    <body onload="startFunction()">
         <section id="header">
             <a href="index.html"> <- Index</a>
             <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
-            <h1> QUIZ <?php $myfile = fopen("status.txt", "r");
-$_SESSION['currentpage'] = fgets($myfile);
-fclose($myfile); 
-echo $_SESSION['currentpage']; ?></h1>            
+            <h1> QUIZ </h1>            
         </section>
 
         <section id="content">
-            <h2 id="question"> Wann ist der vierte Advent?  </h2>
+            <h2 id="question"> </h2>
 
             <div id="pbarTimer" class="progress">
                 <div class="bar" style="width: 100%;"></div>
