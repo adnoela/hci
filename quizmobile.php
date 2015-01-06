@@ -40,7 +40,7 @@ if ($_SESSION['currentpage'] === "quiz") {
                 "Was ist kein Wintermarkt-Getränk?",
                 "Wie heißen nach einem alten Brauch am 4. Dez geschnittene Zweige?"
             ];
-            var answers = new Array(4);
+            var answers = new Array(6);
             answers[0] = [
                 "A",
                 "Sonntag vor Weihnachten",
