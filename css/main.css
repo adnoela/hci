@@ -9,7 +9,7 @@ html{
 body{ 
     position:absolute; top:0; bottom:0; right:0; left:0;
     height: 100%;
-    background-image: url(../pics/flakes.jpg);
+    background-image: url(../pics/flakes2.jpg);
 }
 
 #header{
@@ -63,6 +63,12 @@ body{
     margin-left: 20%;
     margin-top: 5%;
     height: 20%;
+}
+.quizanswer{
+    width:60%;
+    margin-left: 20%;
+    margin-top: 3%;
+    height: 10%;
 }
 .btn-xl{
     padding: 18px 28px;
