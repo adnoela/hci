@@ -179,7 +179,7 @@ $drawinground = file_get_contents($filename);
             </div>
         </div>
         
-        <div class="community" style="position:absolute;bottom:-85px;right:95px;">            
+        <div class="community" style="position:absolute;bottom:-65px;right:105px;">            
             <label id="users" style="font-size:20px">137</label>
             <img src="pics/users1.jpg" width="64px" height="64px">
         </div>
