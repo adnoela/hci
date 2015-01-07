@@ -66,11 +66,11 @@ body{
 }
 .btn-xl{
     padding: 18px 28px;
-    font-size: 28px;
+    font-size: 20px;
 }
 .btn-x2 {
     padding: 18px 28px;
-    font-size: 24px;
+    font-size: 20px;
 }
 .qanswer {
     width:80%;
@@ -89,6 +89,11 @@ body{
     float: bottom;
     margin-right: 50%;
     margin: 5%;
+}
+.question-mobile{
+    margin: 3%;
+    margin-top: 5%;
+    text-align: center;
 }
 .qrBox{
     margin-top: -3%;

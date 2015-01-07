@@ -89,7 +89,7 @@ if (file_exists($filename)) {
                 "D",
                 "Er repräsentierte früher den Winter",
                 "Er hat meistens eine Karotten-Nase",
-                "Augen bestehen aus Kieselsteinen oder Kohlen",
+                "Augen bestehen aus Steinen oder Kohlen",
                 "Muss mindestens 1,5m hoch sein"
             ];
             answers[4] = [
@@ -208,7 +208,7 @@ if (file_exists($filename)) {
             function showRightAnswer() {
                 acceptAnswers = false;
                 var button = document.getElementById("answer-" + rightA);
-                button.style.backgroundColor = "#00FF00";
+                button.style.background = "#00FF00";
             }
 
             function startFunction() {
@@ -242,12 +242,12 @@ if (file_exists($filename)) {
             </div>
 
         </section>
-        <p> Antworten:  <label id="nrAns">0</label> </p>
+        
+
+
+        <div class="community">  
+            <p> Antworten:  <label id="nrAns">0</label> </p>
             <!--p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label-->
-            </p>
-
-
-        <div class="community">            
             <label id="users" style="font-size:20px">132</label>
             <img src="pics/users1.jpg" width="64px" height="64px">
 

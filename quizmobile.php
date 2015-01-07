@@ -69,7 +69,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 "D",
                 "Er repräsentierte früher den Winter",
                 "Er hat meistens eine Karotten-Nase",
-                "Augen bestehen aus Kieselsteinen oder Kohlen",
+                "Augen bestehen aus Steinen oder Kohlen",
                 "Muss mindestens 1,5m hoch sein"
             ];
             answers[4] = [
@@ -86,9 +86,9 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 "Biancazweige",
                 "Mariazweige"
             ];
-            
+
             var rightA;
-            function setQandA () {
+            function setQandA() {
                 document.getElementById("question").innerHTML = questions[qaNumber];
                 document.getElementById("btnA").innerHTML = answers[qaNumber][1];
                 document.getElementById("btnB").innerHTML = answers[qaNumber][2];
@@ -126,7 +126,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 request.open('post', "pusherAnswer.php?input=" + answer + "E" + php_var, true);
                 request.send(null);
             }
-            
+
 
             function endQuiz(id) {
                 //TODO: check if this is the winner!
@@ -136,16 +136,18 @@ $quizstatus = file_get_contents("quizstatus.txt");
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
                     window.location.href = "http://dacima.lima-city.de/drawing.php";
                 }
-                else if(id == "reload")
+                else if (id == "reload")
                 {
                     //alert("reload");
                     window.setTimeout(function () {
-                                location.reload();
-                            }, 3000);
+                        location.reload();
+                    }, 3000);
                 }
                 else
                 {
-                    setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawquiz.php"; }, 7000);
+                    setTimeout(function () {
+                        window.location.href = "http://dacima.lima-city.de/drawquiz.php";
+                    }, 7000);
 
                     //window.location.href = "http://dacima.lima-city.de/drawquiz.php";
                 }
@@ -177,28 +179,21 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 </div>
             </div>
         </div>
-        <div id="firstrow" class="row-fluid">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                <div class="text-justify"> 
-                    <h4 id="question">abc</h4>
-                </div>           
-            </div>
-            <div class="col-xs-4"></div>
+        <div class="question-mobile">
+            <h3 id="question" ></h3>
         </div>
-
-            <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
-            </div>
-            <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')"></button>
-            </div>
-            <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')"></button>
-            </div>
-            <div class="qanswer">
-                <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')"></button>
-            </div>
+        <div class="qanswer">
+            <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
+        </div>
+        <div class="qanswer">
+            <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')"></button>
+        </div>
+        <div class="qanswer">
+            <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')"></button>
+        </div>
+        <div class="qanswer">
+            <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')"></button>
+        </div>
 
     </div>
 
