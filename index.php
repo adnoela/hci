@@ -156,6 +156,9 @@ $drawinground = file_get_contents($filename);
                 </form>
             </div>
         </div>
+        <div id="pbarTimer" class="progress">
+                <div class="bar" style="width: 100%;"></div>
+        </div>
         <div class="canvasBox">
             <canvas id="canvas" style="border: 2px solid; background-color:#FFFFFF"></canvas>
         </div>
