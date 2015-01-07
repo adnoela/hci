@@ -86,7 +86,8 @@ body{
 }
 .community{
     float: left;
-    margin-left: 50%;
+    float: bottom;
+    margin-right: 50%;
     margin: 5%;
 }
 .qrBox{

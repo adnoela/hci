@@ -38,7 +38,7 @@ and open the template in the editor.
         <section id="content">
             <h2> Standorte im Vergleich </h2>
             <div>
-                <canvas id="canvas" width="900" height="350">
+                <canvas id="canvas" width="900" height="350" style="background-color: #FFFFFF;">
                     <p>Dieses Beispiel benötigt einen Webbrowser mit aktivierter
                         <a href="http://de.wikipedia.org/wiki/Canvas_(HTML-Element)">HTML Canvas</a>-Unterstützung.</p>
                 </canvas>
@@ -48,7 +48,7 @@ and open the template in the editor.
 
         <div class="community">            
             <label id="users" style="font-size:20px">132</label>
-            <img src="pics/users.jpg" width="64px" height="64px">
+            <img src="pics/users1.jpg" width="64px" height="64px">
 
         </div>
         <div id="qr-box">

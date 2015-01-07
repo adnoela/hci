@@ -128,7 +128,7 @@
         
         <div class="community">            
             <label id="users" style="font-size:20px">132</label>
-            <img src="pics/users.jpg" width="64px" height="64px">
+            <img src="pics/users1.jpg" width="64px" height="64px">
 
         </div>
         <div class="qrBox">

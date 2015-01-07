@@ -147,8 +147,9 @@ if (file_exists($filename)) {
                         wrong++;
                     }
                     //alert("right: " + right + ", wrong: " + wrong);
-                    document.getElementById("rightAnswers").textContent = right.toString();
-                    document.getElementById("wrongAnswers").textContent = wrong.toString();
+                    //document.getElementById("rightAnswers").textContent = right.toString();
+                    //document.getElementById("wrongAnswers").textContent = wrong.toString();
+                    document.getElementById("answers").textContent = (right+wrong).toString();
 
                     percent = (right) / (right + wrong) * 100;
                     document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
@@ -234,24 +235,24 @@ if (file_exists($filename)) {
             </div>
 
             <div id="answers">
-                <button class="btn-xl btn-primary btn-block" id="answer-A">Sonntag vor Weihnachen</button>
-                <button class="btn-xl btn-primary btn-block" id="answer-B">Am 24. Dezember</button>
-                <button class="btn-xl btn-primary btn-block" id="answer-C">Vierte Samstag im Dezember</button>
-                <button class="btn-xl btn-primary btn-block" id="answer-D">Vierte Sonntag im Dezember</button>
+                <button class="btn-xl btn-primary btn-block" id="answer-A"></button>
+                <button class="btn-xl btn-primary btn-block" id="answer-B"></button>
+                <button class="btn-xl btn-primary btn-block" id="answer-C"></button>
+                <button class="btn-xl btn-primary btn-block" id="answer-D"></button>
             </div>
 
         </section>
-
-        <aside id="community">
-        <div class="community">            
-            <label id="users" style="font-size:20px">132</label>
-            <img src="pics/users.jpg" width="64px" height="64px">
-
-        </div>
-            <p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label>
+        <p> Antworten:  <label id="answers">0</label> </p>
+            <!--p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label-->
             </p>
 
-        </aside>
+
+        <div class="community">            
+            <label id="users" style="font-size:20px">132</label>
+            <img src="pics/users1.jpg" width="64px" height="64px">
+
+        </div>
+            
         <section id="footer">
             <div id="qr-box">
                 <a href="quizmobile.php">
