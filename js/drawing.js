@@ -5,7 +5,6 @@ function init() {
     el.addEventListener("touchend", handleEnd, false);
     el.addEventListener("touchleave", handleEnd, false);
     el.addEventListener("touchmove", handleMove, false);
-    message();
 }
 
 var object = "TANNENBAUM";
@@ -107,11 +106,6 @@ function answer(answer) {
 
 function forward() {
     document.location.href = "drawing.php";
-}
-
-function message() {
-    alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: " + object
-                + " \nSie haben ab SOFORT 120 Sekunden Zeit");
 }
 
 function end(){

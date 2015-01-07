@@ -134,7 +134,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 if (id == php_var)
                 {
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
-                    window.location.href = "http://dacima.lima-city.de/drawing.php";
+                    window.location.href = "http://dacima.lima-city.de/predrawing.php";
                 }
                 else if (id == "reload")
                 {
