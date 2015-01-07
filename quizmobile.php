@@ -11,6 +11,9 @@ if ($_SESSION['currentpage'] === "quiz") {
     }
     exit;
 }
+
+
+$quizstatus = file_get_contents("quizstatus.txt");
 //} elseif ($_SESSION['currentpage'] === "drawquiz") {
 //    header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/drawquiz.php');
 //    exit;
@@ -31,7 +34,7 @@ if ($_SESSION['currentpage'] === "quiz") {
             var php_var = '<?php echo session_id(); ?>';
 
             //TODO php var setzen
-            var qaNumber = 1;
+            var qaNumber = <?php echo substr($quizstatus, -1); ?>;
             var questions = [
                 "Wann ist der vierte Advent?",
                 "Wo wurde Jesus geboren?",
@@ -98,12 +101,12 @@ if ($_SESSION['currentpage'] === "quiz") {
             var answerChannel = pusher.subscribe('quizEndChannel');
             answerChannel.bind('quizEnded', function (data) {
                 endQuiz(data.message.toString());
+                //alert(data.message.toString());
             });
 
             var drawChannel = pusher.subscribe('quizDrawChannel');
             drawChannel.bind('startDrawing', function (data) {
-                //alert("start drawing!");
-                startDrawing();
+                startDrawing(data.message.toString());
             });
 
 
@@ -133,15 +136,22 @@ if ($_SESSION['currentpage'] === "quiz") {
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
                     window.location.href = "http://dacima.lima-city.de/drawing.php";
                 }
+                else if(id == "reload")
+                {
+                    //alert("reload");
+                    window.setTimeout(function () {
+                                location.reload();
+                            }, 3000);
+                }
                 else
                 {
-                    //setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawquiz.php"; }, 3000);
+                    setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawquiz.php"; }, 7000);
 
-                    window.location.href = "http://dacima.lima-city.de/drawquiz.php";
+                    //window.location.href = "http://dacima.lima-city.de/drawquiz.php";
                 }
             }
 
-            function startDrawing() {
+            function startDrawing(mes) {
                 window.location.href = "http://dacima.lima-city.de/drawquiz.php";
             }
 

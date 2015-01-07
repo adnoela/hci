@@ -1,39 +1,41 @@
-<?php 
+<?php
 session_start();
+file_put_contents("status.txt", "quiz");
 $currentpage = file_get_contents('quizstatus.txt');
-if(empty($currentpage))
-{
+if (empty($currentpage)) {
     file_put_contents('quizstatus.txt', 'quiz0');
     $quiz = file_get_contents("quizstatus.txt");
     exit();
 }
 
-if(substr($currentpage, -1) == 0)
-{
+if (substr($currentpage, -1) == 0) {
     file_put_contents('quizstatus.txt', 'quiz1');
-}
-else if(substr($currentpage, -1) == 1)
-{
+} else if (substr($currentpage, -1) == 1) {
     file_put_contents('quizstatus.txt', 'quiz2');
-}
-else if(substr($currentpage, -1) == 2)
-{
+} else if (substr($currentpage, -1) == 2) {
     file_put_contents('quizstatus.txt', 'quiz3');
-}
-else if(substr($currentpage, -1) == 3)
-{
+} else if (substr($currentpage, -1) == 3) {
     file_put_contents('quizstatus.txt', 'quiz4');
-}
-else if(substr($currentpage, -1) == 4)
-{
+} else if (substr($currentpage, -1) == 4) {
     file_put_contents('quizstatus.txt', 'quiz5');
-}
-else if(substr($currentpage, -1) == 5)
-{
+} else if (substr($currentpage, -1) == 5) {
     file_put_contents('quizstatus.txt', 'quiz0');
 }
 $quiz = file_get_contents("quizstatus.txt");
 
+$counter = 1;
+$filename = "counter.txt";
+if (file_exists($filename)) {
+    $counter = file_get_contents($filename);
+    if ($counter == 1) {
+        file_put_contents($filename, 2);
+    }
+    if ($counter == 2) {
+        file_put_contents($filename, 1);
+    }
+} else {
+    file_put_contents($filename, '1');
+}
 ?>
 
 <html>
@@ -49,7 +51,9 @@ $quiz = file_get_contents("quizstatus.txt");
 
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            //TODO via php richtige fragennr setzen
+
+            var nOfQuizzes = <?php echo $counter; ?>;
+
             var qaNumber = <?php echo substr($quiz, -1); ?>;
             var questions = [
                 "Wann ist der vierte Advent?",
@@ -102,9 +106,9 @@ $quiz = file_get_contents("quizstatus.txt");
                 "Biancazweige",
                 "Mariazweige"
             ];
-            
+
             var rightA;
-            function setQandA () {
+            function setQandA() {
                 document.getElementById("question").innerHTML = questions[qaNumber];
                 document.getElementById("answer-A").innerHTML = answers[qaNumber][1];
                 document.getElementById("answer-B").innerHTML = answers[qaNumber][2];
@@ -112,7 +116,7 @@ $quiz = file_get_contents("quizstatus.txt");
                 document.getElementById("answer-D").innerHTML = answers[qaNumber][4];
                 rightA = answers[qaNumber][0];
             }
-                        
+
             var right = 0;
             var wrong = 0;
             var percent = 0;
@@ -134,7 +138,7 @@ $quiz = file_get_contents("quizstatus.txt");
                 if (acceptAnswers) {
                     if (mes[0] == rightA) {
                         right++;
-                        if(!winnerDetected)
+                        if (!winnerDetected)
                         {
                             winnerDetected = true;
                             winnerID = mes[1];
@@ -176,12 +180,22 @@ $quiz = file_get_contents("quizstatus.txt");
                         bar.style.width = 0;
 
                         showRightAnswer();
-                        quizEndMsg(winnerID);
-                        window.setTimeout(function () {
-                            window.location.href = document.getElementById("analysisLink").getAttribute("href");
-                        }, 3000);
-                        clearInterval(cint);
-
+                        if (nOfQuizzes === 2)
+                        {
+                            quizEndMsg(winnerID);
+                            window.setTimeout(function () {
+                                window.location.href = document.getElementById("analysisLink").getAttribute("href");
+                            }, 3000);
+                            clearInterval(cint);
+                        }
+                        else
+                        {
+                            quizEndMsg("reload");
+                            window.setTimeout(function () {
+                            location.reload();
+                             }, 3000);
+                             clearInterval(cint);
+                        }
                     } else {
                         counter = counter - x;
                         bar.style.width = counter + "%";
@@ -192,10 +206,10 @@ $quiz = file_get_contents("quizstatus.txt");
 
             function showRightAnswer() {
                 acceptAnswers = false;
-                var button = document.getElementById("answer-"+rightA);
+                var button = document.getElementById("answer-" + rightA);
                 button.style.backgroundColor = "#00FF00";
             }
-            
+
             function startFunction() {
                 countdown();
                 setQandA();
@@ -237,7 +251,7 @@ $quiz = file_get_contents("quizstatus.txt");
         <section id="footer">
             <div id="qr-box">
                 <a href="quizmobile.php">
-                <img id="code"  src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />                </a>
+                    <img id="code"  src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />                </a>
             </div>
         </section>
 
