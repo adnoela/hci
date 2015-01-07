@@ -47,7 +47,7 @@ and open the template in the editor.
         </section>
 
         <div class="community">            
-            <label id="users" style="font-size:20px">132</label>
+            <label id="users" style="font-size:20px">129</label>
             <img src="pics/users1.jpg" width="64px" height="64px">
 
         </div>
