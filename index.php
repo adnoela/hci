@@ -125,7 +125,7 @@ $drawinground = file_get_contents($filename);
                 }
             });
             channel.bind('answer-event', function (data) {
-                if (data.message.charAt(0) === ('A')) {
+                if (data.message.charAt(0) === (rightA)) {
                     count++;
                     document.counterform.counter.value = "Richtige Antworten: " + count;
                 }

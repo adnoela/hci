@@ -113,7 +113,7 @@ function end(){
         end.style.fontSize = "20px";
         end.innerHTML="Vielen Dank fürs Zeichnen. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
         end.style.visibility="visible";
-        endtimer(3);
+        endtimer(8);
 }
 
 function endtimer (i) {

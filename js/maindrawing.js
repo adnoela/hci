@@ -50,7 +50,7 @@ function end(){
     end.style.visibility="visible";
     request.open('post', "pusherEnd.php", true);    
     request.send(null);
-    endtimer(3);
+    endtimer(5);
 }
 
 function endtimer (i) {
