@@ -84,10 +84,16 @@ body{
     float:left;
     height:85%;
 }
+#community{
+    float: left;
+    margin-left: 50%;
+    margin: 5%;
+}
 .qrBox{
     margin-top: -3%;
     float:right;
     height:85%;
+    margin: 5%
 }
 
 #code{

@@ -46,18 +46,17 @@ and open the template in the editor.
 
         </section>
 
-        <aside id="community">
-            <p>TODO: Community Info</p>
+        <aside id="community">            
+            <label id="users">3</label>
+            <img src="pics/users.jpg" width="50px" height="50px">
 
         </aside>
+        <div id="qr-box">
+            <a href="quizmobile.php">
+                <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               
+            </a>
+        </div>
 
-        <section id="footer">
-            <div id="qr-box">
-                <a href="quizmobile.php">
-<img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               
-                </a>
-            </div>
-        </section>
 
         <script>
             var locations = ["Altes AKH", "Karlsplatz", "Rathaus", "Spittelberg"];
@@ -100,11 +99,11 @@ and open the template in the editor.
                     window.location.href = "http://dacima.lima-city.de/index.php";
                 }, 5000);
             }
-            
+
             var request = new XMLHttpRequest();
-          
+
             function startDrawing() {
-               // alert("server send quizEndmsg!");
+                // alert("server send quizEndmsg!");
                 request.open('post', "pusherStartDrawing.php", true);
                 request.send(null);
             }
