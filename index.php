@@ -15,6 +15,7 @@ if (file_exists($filename)) {
 } else {
     file_put_contents($filename, 0);
 }
+$drawinground = file_get_contents($filename);
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->

@@ -5,6 +5,7 @@ function init(){
 canvas = document.getElementById('canvas');
 canvas.width = screen.width*0.42;
 canvas.height = canvas.width;
+setQandA();
 countdown();
 }
 
