@@ -4,6 +4,8 @@ $myfile = fopen("status.txt", "r");
 $_SESSION['currentpage'] = fgets($myfile);
 $_SESSION['drawing'] = FALSE;
 fclose($myfile);
+
+$drawobject = $_GET["answer"];
 /*
 if ($_SESSION['currentpage'] === "quiz") {
     header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) . '/quizmobile.php');
@@ -62,7 +64,7 @@ and open the template in the editor.
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
-                    <h4>Objekt: Tannenbaum <?php echo $_SESSION['currentpage'] ?></h4>
+                    <h4>Objekt: <?php echo $drawobject; ?></h4>
                 </div>
             </div>
             <div class="col-xs-4"></div>

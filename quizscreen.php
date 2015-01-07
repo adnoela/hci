@@ -166,7 +166,7 @@ if (file_exists($filename)) {
 
 
             var startTime = new Date().getTime();
-            var seconds = 20;
+            var seconds = 60;
             var endTime = startTime + seconds * 1000;
 
             var max = 100;
@@ -176,6 +176,7 @@ if (file_exists($filename)) {
 
             function countdown() {
                 var bar = document.getElementById("pbarTimer");
+                
                 var cint = setInterval(function () {
                     if (counter - x < 0 || (new Date().getTime() >= endTime)) {
                         bar.style.width = 0;
@@ -231,7 +232,7 @@ if (file_exists($filename)) {
             <h2 id="question"> </h2>
 
             <div id="pbarTimer" class="progress">
-                <div class="bar" style="width: 100%;"></div>
+                <div class="progress-bar-success" style="width: 100%; background-color: #5cb85c"></div>
             </div>
 
             <div id="answers">
@@ -246,7 +247,7 @@ if (file_exists($filename)) {
 
 
         <div class="community">  
-            <p> Antworten:  <label id="nrAns">0</label> </p>
+            <p style="font-size:20px"> Antworten:  <label id="nrAns">0</label> </p>
             <!--p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label-->
             <label id="users" style="font-size:20px">132</label>
             <img src="pics/users1.jpg" width="64px" height="64px">

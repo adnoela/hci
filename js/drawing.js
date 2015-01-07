@@ -5,7 +5,6 @@ function init() {
     el.addEventListener("touchend", handleEnd, false);
     el.addEventListener("touchleave", handleEnd, false);
     el.addEventListener("touchmove", handleMove, false);
-    message();
 }
 
 var object = "TANNENBAUM";
@@ -44,7 +43,6 @@ function handleMove(evt) {
         coor = coor + tempX + " " + tempY + " ";
         ctx.closePath();
     }
-
 }
 
 function handleEnd(evt) {
@@ -109,18 +107,13 @@ function forward() {
     document.location.href = "drawing.php";
 }
 
-function message() {
-    alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: " + object
-                + " \nSie haben ab SOFORT 120 Sekunden Zeit");
-}
-
 function end(){
     var end = document.getElementById('end');
         end.style.background='#228B22';
         end.style.fontSize = "20px";
         end.innerHTML="Vielen Dank fürs Zeichnen. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
         end.style.visibility="visible";
-        endtimer(3);
+        endtimer(8);
 }
 
 function endtimer (i) {
@@ -146,7 +139,7 @@ function endquiz(){
         end.style.fontSize = "20px";
         end.innerHTML="Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
         end.style.visibility="visible";
-        endtimer(3);
+        endtimer(5);
 }
 
 function endtimer (i) {
