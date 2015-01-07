@@ -1,13 +1,54 @@
 var canvas;
+var duration = 60;
 
 function init(){
 canvas = document.getElementById('canvas');
 canvas.width = screen.width*0.42;
 canvas.height = canvas.width;
 setQandA();
-countdown(60);
+countdown(duration);
+bar();
 }
 
+var startTime = new Date().getTime();
+            var seconds = duration;
+            var endTime = startTime + seconds * 1000;
+
+            var max = 100;
+            var counter = max;
+            var interval = 100;
+            var x = max / seconds * (interval / 1000);
+            
+function bar(){
+    var bar = document.getElementById("pbarTimer");
+                var cint = setInterval(function () {
+                    if (counter - x < 0 || (new Date().getTime() >= endTime)) {
+                        bar.style.width = 0;
+
+                        showRightAnswer();
+                        if (nOfQuizzes === 2)
+                        {
+                            quizEndMsg(winnerID);
+                            window.setTimeout(function () {
+                                window.location.href = document.getElementById("analysisLink").getAttribute("href");
+                            }, 3000);
+                            clearInterval(cint);
+                        }
+                        else
+                        {
+                            quizEndMsg("reload");
+                            window.setTimeout(function () {
+                            location.reload();
+                             }, 3000);
+                             clearInterval(cint);
+                        }
+                    } else {
+                        counter = counter - x;
+                        bar.style.width = counter + "%";
+                    }
+
+                }, interval)
+}
 
 function countdown (i) {
   if (i == undefined) {
