@@ -145,8 +145,11 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 }
                 else
                 {
+                    //showQuizEndMsg();
                     setTimeout(function () {
                         window.location.href = "http://dacima.lima-city.de/drawquiz.php";
+                     
+
                     }, 7000);
 
                     //window.location.href = "http://dacima.lima-city.de/drawquiz.php";
@@ -162,6 +165,16 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 var button = document.getElementById('btn' + rightAnswer);
                 button.style.background = "#00FF00";
             }
+
+            function showQuizEndMsg() {
+                var quizend = document.getElementById('quizend');
+                quizend.style.background = '#228B22';
+                quizend.style.fontSize = "20px";
+                quizend.innerHTML = "Vielen Dank fürs Mitraten. Nun gehts weiter mit dem Draw-Quiz. Du wirst gleich weitergeleitet.";
+                quizend.style.visibility = "visible";
+                endtimer(3);
+            }
+            
 
         </script>
 
@@ -196,6 +209,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
         </div>
 
     </div>
+    <div id="quizend" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
 
 
 </body>

@@ -36,12 +36,14 @@ and open the template in the editor.
         </section>
 
         <section id="content">
-            <h2> Standorte im Vergleich </h2>
+            <h2> Prozent richtiger Antworten je Standort</h2>
             <div>
+                <p style="text-align: left; margin-left: 15%"><label style="font-size: 18px; text-align: left">Prozent</label></p>
                 <canvas id="canvas" width="900" height="350" style="background-color: #FFFFFF;">
                     <p>Dieses Beispiel benötigt einen Webbrowser mit aktivierter
                         <a href="http://de.wikipedia.org/wiki/Canvas_(HTML-Element)">HTML Canvas</a>-Unterstützung.</p>
-                </canvas>
+                </canvas
+                <p > <label style="text-align: right; font-size: 18px; font-weight: bold ">Standorte</label> </p>
             </div>
 
         </section>
