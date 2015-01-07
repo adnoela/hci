@@ -75,15 +75,12 @@ and open the template in the editor.
 
 
         <div id="firstrow" class="row-fluid">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
                 <div class="text-center">
-                    <h4>Was wird gezeichnet?</h4>
+                    <h4>Erraten Sie, was auf dem Public Screen gezeichnet wird. <br> ACHTUNG: Ihre 1. Auswahl ist endgültig!</h4>
                 </div>
-            </div>
             <div class="col-xs-4"></div>
         </div>
-        <div class="drawanswer">
+        <div class="drawanswer"  style="margin-top:5%;">
             <button id="btnA" class="btn-xl btn-primary btn-block" onclick="answer('A')">Tannenbaum</button> 
         </div>
         <div class="drawanswer">
