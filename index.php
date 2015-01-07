@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 $drawinground = 0;
 $filename = "drawingstatus.txt";
 if (file_exists($filename)) {
@@ -38,7 +39,7 @@ $drawinground = file_get_contents($filename);
         <script>var request = new XMLHttpRequest();</script>
         <script src="js/maindrawing.js"></script>
         <script type="text/javascript">
-            
+
             var drawingNumber = <?php echo $drawinground; ?>;
             var answers = new Array(3);
             answers[0] = [
@@ -64,7 +65,7 @@ $drawinground = file_get_contents($filename);
             ];
             var rightA;
             var answer;
-            function setQandA () {
+            function setQandA() {
                 document.getElementById("btnA").innerHTML = answers[drawingNumber][1];
                 document.getElementById("btnB").innerHTML = answers[drawingNumber][2];
                 document.getElementById("btnC").innerHTML = answers[drawingNumber][3];
@@ -72,7 +73,7 @@ $drawinground = file_get_contents($filename);
                 rightA = answers[drawingNumber][0];
                 answer = rightA;
             }
-            
+
             var pusher = new Pusher('85b8dbe2ce68623ad71a');
             var channel = pusher.subscribe('test-channel');
             var count = 0;
@@ -156,42 +157,44 @@ $drawinground = file_get_contents($filename);
                 </form>
             </div>
         </div>
-        <p>
-        <div id="pbarTimer" class="progress">
+        <div  style="margin-left: 5%;margin-right: 5%;">
+            <p>
+            <div id="pbarTimer" class="progress">
                 <div class="bar" style="width: 100%;"></div>
-        </div>
-    </p>
-        <div class="canvasBox">
-            <canvas id="canvas" style="border: 2px solid; background-color:#FFFFFF"></canvas>
-        </div>
-        <div class="col-md-4" style="height:85%; margin-left: 3%;">
-            <div class="drawanswer1">
-                <button id="btnA" class="btn-xl btn-primary btn-block">Tannenbaum</button> 
             </div>
-            <div class="drawanswer1">
-                <button id="btnB" class="btn-xl btn-primary btn-block">Gitarre</button> 
-            </div>
-            <div class="drawanswer1">
-                <button id="btnC" class="btn-xl btn-primary btn-block">Smarthone</button> 
-            </div>
-            <div class="drawanswer1">
-                <button id="btnD" class="btn-xl btn-primary btn-block">Pizzaschneider</button> 
-            </div>
+        </p>
+    </div>
+    <div class="canvasBox">
+        <canvas id="canvas" style="border: 2px solid; background-color:#FFFFFF"></canvas>
+    </div>
+    <div class="col-md-4" style="height:85%; margin-left: 3%;">
+        <div class="drawanswer1">
+            <button id="btnA" class="btn-xl btn-primary btn-block">Tannenbaum</button> 
         </div>
-        
-        <div class="community" style="position:absolute;bottom:-65px;right:105px;">            
-            <label id="users" style="font-size:20px">137</label>
-            <img src="pics/users1.jpg" width="64px" height="64px">
+        <div class="drawanswer1">
+            <button id="btnB" class="btn-xl btn-primary btn-block">Gitarre</button> 
         </div>
-        <div class="qrBox">
-           
-            <a href="drawquiz.php" style>
-                 <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fdrawquiz.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />            
-            </a>
+        <div class="drawanswer1">
+            <button id="btnC" class="btn-xl btn-primary btn-block">Smarthone</button> 
         </div>
+        <div class="drawanswer1">
+            <button id="btnD" class="btn-xl btn-primary btn-block">Pizzaschneider</button> 
+        </div>
+    </div>
 
-        <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
-    </body>
+    <div class="community" style="position:absolute;bottom:-65px;right:105px;">            
+        <label id="users" style="font-size:20px">137</label>
+        <img src="pics/users1.jpg" width="64px" height="64px">
+    </div>
+    <div class="qrBox">
+
+        <a href="drawquiz.php" style>
+            <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fdrawquiz.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />            
+        </a>
+    </div>
+
+    <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
+</body>
 </html>
 <!--
 
