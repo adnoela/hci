@@ -125,6 +125,12 @@
                 <button id="btnD" class="btn-xl btn-primary btn-block">Pizzaschneider</button> 
             </div>
         </div>
+        
+        <div class="community">            
+            <label id="users" style="font-size:20px">132</label>
+            <img src="pics/users.jpg" width="64px" height="64px">
+
+        </div>
         <div class="qrBox">
            
             <a href="drawquiz.php" style>

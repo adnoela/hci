@@ -46,11 +46,11 @@ and open the template in the editor.
 
         </section>
 
-        <aside id="community">            
-            <label id="users">3</label>
-            <img src="pics/users.jpg" width="50px" height="50px">
+        <div class="community">            
+            <label id="users" style="font-size:20px">132</label>
+            <img src="pics/users.jpg" width="64px" height="64px">
 
-        </aside>
+        </div>
         <div id="qr-box">
             <a href="quizmobile.php">
                 <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               

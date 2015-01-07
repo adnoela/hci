@@ -243,7 +243,11 @@ if (file_exists($filename)) {
         </section>
 
         <aside id="community">
-            <p>TODO: Community Info</p>
+        <div class="community">            
+            <label id="users" style="font-size:20px">132</label>
+            <img src="pics/users.jpg" width="64px" height="64px">
+
+        </div>
             <p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label>
             </p>
 
