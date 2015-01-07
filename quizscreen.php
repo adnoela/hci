@@ -149,7 +149,7 @@ if (file_exists($filename)) {
                     //alert("right: " + right + ", wrong: " + wrong);
                     //document.getElementById("rightAnswers").textContent = right.toString();
                     //document.getElementById("wrongAnswers").textContent = wrong.toString();
-                    document.getElementById("answers").textContent = (right+wrong).toString();
+                    document.getElementById("nrAns").textContent = (right+wrong).toString();
 
                     percent = (right) / (right + wrong) * 100;
                     document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
@@ -224,7 +224,7 @@ if (file_exists($filename)) {
         <section id="header">
             <a href="index.html"> <- Index</a>
             <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
-            <h1> QUIZ <?php echo substr($quiz, -1); ?></h1>            
+            <h1> QUIZ</h1>            
         </section>
 
         <section id="content">
@@ -242,7 +242,7 @@ if (file_exists($filename)) {
             </div>
 
         </section>
-        <p> Antworten:  <label id="answers">0</label> </p>
+        <p> Antworten:  <label id="nrAns">0</label> </p>
             <!--p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label-->
             </p>
 

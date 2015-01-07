@@ -35,7 +35,7 @@ and open the template in the editor.
 
                 <div class="btn-group" role="group">
                     <a href="quizmobile.php">
-                        <button type="button" class="btn btn-success" autofocus="true">Drawing-Quiz</button>
+                        <button type="button" class="btn btn-success" autofocus="true">Drawing Quiz</button>
                     </a>
                 </div>
             </div>
