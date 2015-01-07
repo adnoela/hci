@@ -140,7 +140,7 @@ function endquiz(){
         end.style.fontSize = "20px";
         end.innerHTML="Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
         end.style.visibility="visible";
-        endtimer(3);
+        endtimer(5);
 }
 
 function endtimer (i) {

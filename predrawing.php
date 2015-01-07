@@ -5,11 +5,11 @@ if($drawinground == 0)
 {
     $drawinground = 1;
 }
-if($drawinground == 1)
+else if($drawinground == 1)
 {
     $drawinground = 2;
 }
-if($drawinground == 2)
+else if($drawinground == 2)
 {
     $drawinground = 0;
 }

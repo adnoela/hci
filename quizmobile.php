@@ -147,7 +147,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 {
                     setTimeout(function () {
                         window.location.href = "http://dacima.lima-city.de/drawquiz.php";
-                    }, 7000);
+                    }, 8000);
 
                     //window.location.href = "http://dacima.lima-city.de/drawquiz.php";
                 }
