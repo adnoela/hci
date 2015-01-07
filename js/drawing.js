@@ -110,8 +110,6 @@ function forward() {
 }
 
 function message() {
-    request.open('post', "pusherSynch.php", true);
-    request.send(null);
     alert("Glückwunsch, Sie haben gewonnen! \nSie müssen folgendes Objekt zeichnen: " + object
                 + " \nSie haben ab SOFORT 120 Sekunden Zeit");
 }

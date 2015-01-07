@@ -79,10 +79,6 @@
                     document.counterform.counter.value = "Richtige Antworten: " + count;
                 }
             });
-            channel.bind('countdown-event', function (data) {
-                countdown(120);
-            })
-
 
         </script>
 
