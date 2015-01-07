@@ -1,5 +1,4 @@
 var canvas;
-var answer = 'A';
 
 function init(){
 canvas = document.getElementById('canvas');

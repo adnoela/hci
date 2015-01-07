@@ -63,12 +63,14 @@ $drawinground = file_get_contents($filename);
                 "Geschenksband"
             ];
             var rightA;
+            var answer;
             function setQandA () {
                 document.getElementById("btnA").innerHTML = answers[drawingNumber][1];
                 document.getElementById("btnB").innerHTML = answers[drawingNumber][2];
                 document.getElementById("btnC").innerHTML = answers[drawingNumber][3];
                 document.getElementById("btnD").innerHTML = answers[drawingNumber][4];
                 rightA = answers[drawingNumber][0];
+                answer = rightA;
             }
             
             var pusher = new Pusher('85b8dbe2ce68623ad71a');
