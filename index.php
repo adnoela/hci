@@ -76,7 +76,7 @@ $drawinground = file_get_contents($filename);
             var pusher = new Pusher('85b8dbe2ce68623ad71a');
             var channel = pusher.subscribe('test-channel');
             var count = 0;
-            var size = screen.width * 0.42;
+            var size = screen.width * 0.4;
             size = size / 400;
             strichgr = 2 * size;
             channel.bind('test-event', function (data) {
@@ -140,19 +140,19 @@ $drawinground = file_get_contents($filename);
 
         <div class="row-fluid" style="width:100%;min-height: 15%;">
             <div class="col-md-9">
-                <div class="text-center" style="font-size: 45px;font-weight:bold;">
+                <div class="text-center" style="font-size: 40px;font-weight:bold;">
                     Was wird hier gemalt? <br>Du willst mitraten? Einfach QR-Code scannen!
                 </div>
             </div>
             <div class="col-md-3" style="margin-top:1%;">
                 <form name="countdownform">
-                    <input id="input" name="countdown" style="font-size: 2em; background-color: transparent;" size="25" value="Verbleibende Zeit: 60 Sekunden">
+                    <input id="input" name="countdown" style="font-size: 20px; background-color: transparent;" size="25" value="Verbleibende Zeit: 60 Sekunden">
                 </form>
                 <form name="counterform">
-                    <input id="input" name="counter" style="font-size: 2em;background-color: transparent;" value="Richtige Antworten: 0">
+                    <input id="input" name="counter" style="font-size: 20px;background-color: transparent;" value="Richtige Antworten: 0">
                 </form>
                 <form name="benoetigt">
-                    <input id="input" name="noetig" style="font-size: 2em;background-color: transparent;" value="                 benötigt: 2">
+                    <input id="input" name="noetig" style="font-size: 20px;background-color: transparent;" value="                 benötigt: 2">
                 </form>
             </div>
         </div>
@@ -177,7 +177,7 @@ $drawinground = file_get_contents($filename);
             </div>
         </div>
         
-        <div class="community">            
+        <div class="community" style="position:absolute;bottom:-85px;right:95px;">            
             <label id="users" style="font-size:20px">137</label>
             <img src="pics/users1.jpg" width="64px" height="64px">
         </div>
