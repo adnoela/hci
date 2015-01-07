@@ -4,7 +4,7 @@ $myfile = fopen("status.txt", "r");
 $_SESSION['currentpage'] = fgets($myfile);
 $_SESSION['drawing'] = FALSE;
 fclose($myfile);
-
+/*
 if ($_SESSION['currentpage'] === "quiz") {
     header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) . '/quizmobile.php');
         exit;
@@ -14,7 +14,9 @@ if ($_SESSION['currentpage'] === "quiz") {
         header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) . '/drawquiz.php');
     }
     exit;
-}?>
+}
+*/
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
