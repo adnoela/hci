@@ -1,4 +1,7 @@
-<?php include 'sessionmobile.php'; ?>
+<?php include 'sessionmobile.php'; 
+$filename = "drawingstatus.txt";
+$drawinground = file_get_contents($filename);
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -24,7 +27,7 @@ and open the template in the editor.
             });
             
             //TODO php var setzen
-            var drawingNumber = 0;
+            var drawingNumber = <?php echo $drawinground; ?>;
             var answers = new Array(3);
             answers[0] = [
                 "A",

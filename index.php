@@ -1,4 +1,21 @@
-<?php include 'sessionscreen.php'; ?>
+<?php session_start();
+$drawinground = 0;
+$filename = "drawingstatus.txt";
+if (file_exists($filename)) {
+    $drawinground = file_get_contents($filename);
+    if ($drawinground == 0) {
+        file_put_contents($filename, 1);
+    }
+    if ($drawinground == 1) {
+        file_put_contents($filename, 2);
+    }
+    if ($drawinground == 2) {
+        file_put_contents($filename, 0);
+    }
+} else {
+    file_put_contents($filename, 0);
+}
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -20,6 +37,39 @@
         <script>var request = new XMLHttpRequest();</script>
         <script src="js/maindrawing.js"></script>
         <script type="text/javascript">
+            
+            var drawingNumber = <?php echo $drawinground; ?>;
+            var answers = new Array(3);
+            answers[0] = [
+                "A",
+                "Weihnachtsbaum",
+                "Tannenzweig",
+                "Maibaum",
+                "Eiszapfen"
+            ];
+            answers[1] = [
+                "C",
+                "Weihnachtsmann",
+                "Nikolaus",
+                "Elf",
+                "Goblin"
+            ];
+            answers[2] = [
+                "D",
+                "Geschenkspapier",
+                "Geschenk",
+                "Schleife",
+                "Geschenksband"
+            ];
+            var rightA;
+            function setQandA () {
+                document.getElementById("btnA").innerHTML = answers[drawingNumber][1];
+                document.getElementById("btnB").innerHTML = answers[drawingNumber][2];
+                document.getElementById("btnC").innerHTML = answers[drawingNumber][3];
+                document.getElementById("btnD").innerHTML = answers[drawingNumber][4];
+                rightA = answers[drawingNumber][0];
+            }
+            
             var pusher = new Pusher('85b8dbe2ce68623ad71a');
             var channel = pusher.subscribe('test-channel');
             var count = 0;

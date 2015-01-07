@@ -19,5 +19,10 @@
                 </div>
             </div>
         </div>
+        
+        <div id="explanation">
+            Glückwunsch, Sie haben das Quiz gewonnen und müssen folgenden Begriff zeichnen. <br>
+            <?php ?>
+        </div>
     </body>
 </html>
