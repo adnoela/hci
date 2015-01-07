@@ -228,7 +228,7 @@ if (file_exists($filename)) {
             <h1> QUIZ</h1>            
         </section>
 
-        <section id="content">
+        <div id="content">
             <h2 id="question"> </h2>
 
             <div id="pbarTimer" class="progress">
@@ -242,7 +242,7 @@ if (file_exists($filename)) {
                 <button class="btn-xl btn-primary btn-block" id="answer-D"></button>
             </div>
 
-        </section>
+        </div>
         
 
 

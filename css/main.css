@@ -17,9 +17,10 @@ body{
     text-align: center;
 }
 #content{
-    border: solid;
     height: 60%;
     text-align: center;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 #footer{
     height: 20%;
