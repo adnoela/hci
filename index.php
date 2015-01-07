@@ -137,26 +137,25 @@ $drawinground = file_get_contents($filename);
     <body onload="init()" style="height: 100%;">
 
         <div class="row-fluid" style="width:100%;min-height: 15%;">
-            <div class="col-md-3""></div>
-            <div class="col-md-6">
-                <div class="text-center">
-                    <h1>Was wird hier gemalt?</h1>
+            <div class="col-md-9">
+                <div class="text-center" style="font-size: 45px;font-weight:bold;">
+                    Was wird hier gemalt? <br>Du willst mitraten? Einfach QR-Code scannen!
                 </div>
             </div>
             <div class="col-md-3" style="margin-top:1%;">
                 <form name="countdownform">
-                    <input id="input" name="countdown" style="font-size: 2em;" size="25" value="Verbleibende Zeit: 60 Sekunden">
+                    <input id="input" name="countdown" style="font-size: 2em; background-color: transparent;" size="25" value="Verbleibende Zeit: 60 Sekunden">
                 </form>
                 <form name="counterform">
-                    <input id="input" name="counter" style="font-size: 2em;" value="Richtige Antworten: 0">
+                    <input id="input" name="counter" style="font-size: 2em;background-color: transparent;" value="Richtige Antworten: 0">
                 </form>
                 <form name="benoetigt">
-                    <input id="input" name="noetig" style="font-size: 2em;" value="                 benötigt: 2">
+                    <input id="input" name="noetig" style="font-size: 2em;background-color: transparent;" value="                 benötigt: 2">
                 </form>
             </div>
         </div>
         <div class="canvasBox">
-            <canvas id="canvas" style="border: 2px solid;"></canvas>
+            <canvas id="canvas" style="border: 2px solid; background-color:#FFFFFF"></canvas>
         </div>
         <div class="col-md-4" style="height:85%; margin-left: 3%;">
             <div class="drawanswer1">

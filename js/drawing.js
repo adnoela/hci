@@ -43,7 +43,6 @@ function handleMove(evt) {
         coor = coor + tempX + " " + tempY + " ";
         ctx.closePath();
     }
-
 }
 
 function handleEnd(evt) {

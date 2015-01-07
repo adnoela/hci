@@ -31,7 +31,7 @@ body{
 #canvasDiv{
     width: 402px;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 8%;
 }
 
 #center{
@@ -79,7 +79,7 @@ body{
     height: 18%;
 }
 .canvasBox{
-    margin-top: -3%;
+    margin-top: -1%;
     margin-left: 5%;
     float:left;
     height:85%;
