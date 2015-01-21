@@ -72,7 +72,7 @@ and open the template in the editor.
                     </a>
                 </div>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-success" autofocus="true">Drawing-Quiz</button>
+                    <button type="button" class="btn btn-success">Drawing-Quiz</button>
                 </div>
             </div>
         </div>
@@ -96,6 +96,6 @@ and open the template in the editor.
         <button id="btnD" class="btn-xl btn-primary btn-block" onclick="answer('D')">Pizzaschneider</button> 
     </div>
 
-    <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
+    <div id="end" style="position:absolute;top:1%;width:98%;left:1%;right:1%;height:15%;border:3px solid;visibility:hidden;"></div>
 </body>
 </html>

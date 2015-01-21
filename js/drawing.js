@@ -131,29 +131,13 @@ function endtimer (i) {
 
 function endquiz(){
     var end = document.getElementById('end');
-        end.style.background='#228B22';
-        end.style.fontSize = "20px";
-        end.innerHTML="Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst gleich weitergeleitet.";
+        end.style.background='#F5F5DC';
+        end.style.fontSize = "16px";
+        end.innerHTML="Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst in wenigen Sekunden zum nächsten Quiz weitergeleitet.";
         end.style.visibility="visible";
         endtimer(5);
 }
 
-function endtimer (i) {
-  if (i == undefined) {
-    // Startwert
-    i = 10;
-  }
-  
-  if (i > 0) {
-    i--;
-    // Funktion verzögert aufrufen
-    window.setTimeout("endtimer(" + i + ")", 1000);
-  }
-  else
-  {
-      document.location.href = "quizmobile.php";
-  }
-}
 
 /*function tempAlert(msg,duration)
  {
