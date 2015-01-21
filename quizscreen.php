@@ -188,6 +188,7 @@ if (file_exists($filename)) {
                     } else {
                         counter = counter - x;
                         bar.style.width = counter + "%";
+                        bar.style.background="#6B8E23";
                     }
 
                 }, interval)

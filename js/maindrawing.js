@@ -20,7 +20,8 @@ var interval = 100;
 var x = max / seconds * (interval / 1000);
 
 function bar() {
-    var bar = document.getElementById("pbarTimer");
+    var bar = document.getElementById("pbarTimer");    
+    
     var cint = setInterval(function () {
         if (counter - x < 0 || (new Date().getTime() >= endTime)) {
             bar.style.width = 0;
@@ -45,7 +46,7 @@ function bar() {
         } else {
             counter = counter - x;
             bar.style.width = counter + "%";
-            bar.style.backgroundColor = "black";
+            bar.style.background="#6B8E23";
         }
    
     
