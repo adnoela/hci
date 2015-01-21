@@ -186,7 +186,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group" role="group">
                     <a href="mobilefoto.php">
-                        <button type="button" class="btn btn-primary">Fotostream</button>
+                        <button type="button" class="btn btn-success"  style="opacity: 0.7;">Fotostream</button>
                     </a>
                 </div>
                 <div class="btn-group" role="group">

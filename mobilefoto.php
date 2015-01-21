@@ -30,12 +30,12 @@ and open the template in the editor.
         <div class="col-xs-12">
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-primary">Fotostream</button>
+                    <button type="button" class="btn btn-success" autofocus="true">Fotostream</button>
                 </div>
 
                 <div class="btn-group" role="group">
                     <a href="quizmobile.php">
-                        <button type="button" class="btn btn-success" autofocus="true">Drawing Quiz</button>
+                        <button type="button" class="btn btn-success"  style="opacity: 0.7;">Drawing Quiz</button>
                     </a>
                 </div>
             </div>
