@@ -113,7 +113,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
             var request = new XMLHttpRequest();
 
             function sendAnswer(answer) {
-    
+
                 var btn = document.getElementsByClassName('btn-x2');
                 for (var i = 0; i < btn.length; i++) {
                     btn[i].disabled = "true";
@@ -123,7 +123,7 @@ $quizstatus = file_get_contents("quizstatus.txt");
 
                 btn = document.getElementById('btn' + answer);
                 btn.style.background = '#FFA500';
-                btn.selected="true";
+                btn.selected = "true";
                 btn.style.opacity = "1.0";
 
                 request.open('post', "pusherAnswer.php?input=" + answer + "E" + php_var, true);
@@ -137,7 +137,10 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 if (id == php_var)
                 {
                     // setTimeout(function(){ window.location.href = "http://dacima.lima-city.de/drawing.php"; }, 3000);
+                    showOverlayDrawing();
+                    window.setTimeout(function () {
                     window.location.href = "http://dacima.lima-city.de/predrawing.php";
+                    }, 10000);
                 }
                 else if (id == "reload")
                 {
@@ -148,10 +151,11 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 }
                 else
                 {
+                    showOverlayDrawQuiz();
                     //showQuizEndMsg();
                     setTimeout(function () {
                         window.location.href = "http://dacima.lima-city.de/drawquiz.php";
-                    }, 8000);
+                    }, 20000);
 
 
                     //window.location.href = "http://dacima.lima-city.de/drawquiz.php";
@@ -167,16 +171,22 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 var button = document.getElementById('btn' + rightAnswer);
                 button.style.background = "#00FF00";
             }
-
-            function showQuizEndMsg() {
-                var quizend = document.getElementById('quizend');
-                quizend.style.background = '#228B22';
-                quizend.style.fontSize = "20px";
-                quizend.innerHTML = "Vielen Dank fürs Mitraten. Nun gehts weiter mit dem Draw-Quiz. Du wirst gleich weitergeleitet.";
-                quizend.style.visibility = "visible";
-                endtimer(3);
+            
+            function showOverlayDrawQuiz() {
+                var end = document.getElementById('quizend');
+                end.style.background = '#F5F5DC';
+                end.style.fontSize = "16px";
+                end.innerHTML = "Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst in wenigen Sekunden zum nächsten Quiz weitergeleitet.";
+                end.style.visibility = "visible";
             }
             
+            function showOverlayDrawing() {
+                var end = document.getElementById('quizend');
+                end.style.background = '#F5F5DC';
+                end.style.fontSize = "16px";
+                end.innerHTML = "Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst in wenigen Sekunden zum Malen weitergeleitet.";
+                end.style.visibility = "visible";
+            }
 
         </script>
 
@@ -195,35 +205,35 @@ $quizstatus = file_get_contents("quizstatus.txt");
             </div>
         </div>
         <div id="firstrow" class="row-fluid">
-                <div class="text-center">
-                    <p>
-                    <h4>Die Auflösung erfolgt sobald die Zeit am Public-Screen abgelaufen ist.
-                        <br> ACHTUNG: Ihre 1. Auswahl ist endgültig!
-                    </h4>
-                    </p>
-                </div>
+            <div class="text-center">
+                <p>
+                <h4>Die Auflösung erfolgt sobald die Zeit am Public-Screen abgelaufen ist.
+                    <br> ACHTUNG: Ihre 1. Auswahl ist endgültig!
+                </h4>
+                </p>
+            </div>
             <div class="col-xs-4"></div>
         </div>
         <div class="question-mobile">
             <p>
-                <h3 id="question" ></h3>
-            </p>
-        </div>
-        <div class="qanswer">
-            <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
-        </div>
-        <div class="qanswer">
-            <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')"></button>
-        </div>
-        <div class="qanswer">
-            <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')"></button>
-        </div>
-        <div class="qanswer">
-            <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')"></button>
-        </div>
-
+            <h3 id="question" ></h3>
+        </p>
     </div>
-    <div id="quizend" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
+    <div class="qanswer">
+        <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
+    </div>
+    <div class="qanswer">
+        <button class="btn-x2 btn-primary btn-block" id="btnB" onclick="sendAnswer('B')"></button>
+    </div>
+    <div class="qanswer">
+        <button class="btn-x2 btn-primary btn-block" id="btnC" onclick="sendAnswer('C')"></button>
+    </div>
+    <div class="qanswer">
+        <button class="btn-x2 btn-primary btn-block" id="btnD" onclick="sendAnswer('D')"></button>
+    </div>
+
+</div>
+<div id="quizend" style="position:absolute;top:1%;width:98%;left:1%;right:1%;height:15%;border:3px solid;visibility:hidden;"></div>
 
 
 </body>
