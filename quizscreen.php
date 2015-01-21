@@ -221,7 +221,10 @@ if (file_exists($filename)) {
         <div class="row-fluid" style="width:100%;min-height: 15%;">
             <div class="col-md-9">
                 <div class="text-center" style="font-size: 40px;font-weight:bold; margin-left: 30%">
-                    <p> QUIZ <br>Du willst mitraten? Einfach QR-Code scannen! </p>
+                    <p> QUIZ</p>
+                </div>
+                <div class="text-center" style="font-size: 30px;font-weight:bold; margin-left: 30%">
+                    Du willst mitraten? Einfach QR-Code scannen! 
                 </div>
             </div>
             <div class="col-md-3" style="margin-top:1%;">
