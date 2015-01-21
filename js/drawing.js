@@ -135,7 +135,7 @@ function endquiz(){
         end.style.fontSize = "16px";
         end.innerHTML="Vielen Dank fürs Mitraten. Das Ergebnis siehst du auf dem Haupt-Bildschirm! Du wirst in wenigen Sekunden zum nächsten Quiz weitergeleitet.";
         end.style.visibility="visible";
-        endtimer(5);
+        endtimer(10);
 }
 
 

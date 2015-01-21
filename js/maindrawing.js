@@ -1,5 +1,5 @@
 var canvas;
-var duration = 1;
+var duration = 60;
 
 function init() {
     canvas = document.getElementById('canvas');
@@ -75,7 +75,7 @@ function end() {
     end.style.visibility = "visible";
     request.open('post', "pusherEnd.php", true);
     request.send(null);
-    //endtimer(5);
+    endtimer(10);
 }
 
 function endtimer(i) {
