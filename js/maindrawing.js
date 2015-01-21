@@ -1,5 +1,5 @@
 var canvas;
-var duration = 45;
+var duration = 60;
 
 function init() {
     canvas = document.getElementById('canvas');
