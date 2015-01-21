@@ -1,29 +1,26 @@
 <?php
 session_start();
-file_put_contents("status.txt", "quiz");
-$currentpage = file_get_contents('quizstatus.txt');
-if (empty($currentpage)) {
-    file_put_contents('quizstatus.txt', 'quiz0');
-    $quiz = file_get_contents("quizstatus.txt");
-    exit();
-}
 
-if (substr($currentpage, -1) == 0) {
-    file_put_contents('quizstatus.txt', 'quiz1');
-} else if (substr($currentpage, -1) == 1) {
-    file_put_contents('quizstatus.txt', 'quiz2');
-} else if (substr($currentpage, -1) == 2) {
-    file_put_contents('quizstatus.txt', 'quiz3');
-} else if (substr($currentpage, -1) == 3) {
-    file_put_contents('quizstatus.txt', 'quiz4');
-} else if (substr($currentpage, -1) == 4) {
-    file_put_contents('quizstatus.txt', 'quiz5');
-} else if (substr($currentpage, -1) == 5) {
-    file_put_contents('quizstatus.txt', 'quiz0');
-}
 $quiz = file_get_contents("quizstatus.txt");
 
-$counter = 1;
+$drawinground = 0;
+$filename = "drawingstatus.txt";
+if (file_exists($filename)) {
+    $drawinground = file_get_contents($filename);
+    if ($drawinground == 0) {
+        file_put_contents($filename, 1);
+    }
+    if ($drawinground == 1) {
+        file_put_contents($filename, 2);
+    }
+    if ($drawinground == 2) {
+        file_put_contents($filename, 0);
+    }
+} else {
+    file_put_contents($filename, 0);
+}
+
+/*$counter = 1;
 $filename = "counter.txt";
 if (file_exists($filename)) {
     $counter = file_get_contents($filename);
@@ -36,6 +33,7 @@ if (file_exists($filename)) {
 } else {
     file_put_contents($filename, '1');
 }
+ */
 ?>
 
 <html>
@@ -52,7 +50,7 @@ if (file_exists($filename)) {
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script type="text/javascript">
 
-            var nOfQuizzes = <?php echo $counter; ?>;
+            //var nOfQuizzes = ?php echo $counter; ?>;
 
             var qaNumber = <?php echo substr($quiz, -1); ?>;
             var questions = [
@@ -182,22 +180,11 @@ if (file_exists($filename)) {
                         bar.style.width = 0;
 
                         showRightAnswer();
-                        if (nOfQuizzes === 2)
-                        {
                             quizEndMsg(winnerID);
                             window.setTimeout(function () {
                                 window.location.href = document.getElementById("analysisLink").getAttribute("href");
                             }, 3000);
                             clearInterval(cint);
-                        }
-                        else
-                        {
-                            quizEndMsg("reload");
-                            window.setTimeout(function () {
-                            location.reload();
-                             }, 3000);
-                             clearInterval(cint);
-                        }
                     } else {
                         counter = counter - x;
                         bar.style.width = counter + "%";

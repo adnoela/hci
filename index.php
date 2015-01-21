@@ -1,22 +1,29 @@
 <?php
 session_start();
-$drawinground = 0;
-$filename = "drawingstatus.txt";
-if (file_exists($filename)) {
-    $drawinground = file_get_contents($filename);
-    if ($drawinground == 0) {
-        file_put_contents($filename, 1);
-    }
-    if ($drawinground == 1) {
-        file_put_contents($filename, 2);
-    }
-    if ($drawinground == 2) {
-        file_put_contents($filename, 0);
-    }
-} else {
-    file_put_contents($filename, 0);
+
+file_put_contents("status.txt", "quiz");
+$currentpage = file_get_contents('quizstatus.txt');
+if (empty($currentpage)) {
+    file_put_contents('quizstatus.txt', 'quiz0');
+    $quiz = file_get_contents("quizstatus.txt");
+    exit();
 }
-$drawinground = file_get_contents($filename);
+
+if (substr($currentpage, -1) == 0) {
+    file_put_contents('quizstatus.txt', 'quiz1');
+} else if (substr($currentpage, -1) == 1) {
+    file_put_contents('quizstatus.txt', 'quiz2');
+} else if (substr($currentpage, -1) == 2) {
+    file_put_contents('quizstatus.txt', 'quiz3');
+} else if (substr($currentpage, -1) == 3) {
+    file_put_contents('quizstatus.txt', 'quiz4');
+} else if (substr($currentpage, -1) == 4) {
+    file_put_contents('quizstatus.txt', 'quiz5');
+} else if (substr($currentpage, -1) == 5) {
+    file_put_contents('quizstatus.txt', 'quiz0');
+}
+
+$drawinground = file_get_contents("drawingstatus.txt");
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
