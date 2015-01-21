@@ -176,7 +176,7 @@ if (file_exists($filename)) {
                 var bar = document.getElementById("pbarTimer");
 
                 var cint = setInterval(function () {
-                    if (counter - x < 0 || (new Date().getTime() >= endTime)) {
+                    if (counter - x < 0) {
                         bar.style.width = 0;
 
                         showRightAnswer();
