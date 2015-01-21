@@ -1,5 +1,5 @@
 var canvas;
-var duration = 60;
+var duration = 1;
 
 function init() {
     canvas = document.getElementById('canvas');
@@ -20,36 +20,19 @@ var interval = 100;
 var x = max / seconds * (interval / 1000);
 
 function bar() {
-    var bar = document.getElementById("pbarTimer");    
-    
+    var bar = document.getElementById("pbarTimer");
+
     var cint = setInterval(function () {
         if (counter - x < 0 || (new Date().getTime() >= endTime)) {
             bar.style.width = 0;
 
-            showRightAnswer();
-            if (nOfQuizzes === 2)
-            {
-                quizEndMsg(winnerID);
-                window.setTimeout(function () {
-                    window.location.href = document.getElementById("analysisLink").getAttribute("href");
-                }, 3000);
-                clearInterval(cint);
-            }
-            else
-            {
-                quizEndMsg("reload");
-                window.setTimeout(function () {
-                    location.reload();
-                }, 3000);
-                clearInterval(cint);
-            }
         } else {
             counter = counter - x;
             bar.style.width = counter + "%";
-            bar.style.background="#6B8E23";
+            bar.style.background = "#6B8E23";
         }
-   
-    
+
+
     }, interval)
 }
 
@@ -76,24 +59,23 @@ function end() {
     for (var i = 0; i < btn.length; i++) {
         btn[i].disabled = "true";
         btn[i].style.background = '#696969';
+        btn[i].style.opacity = "0.3";
     }
-    document.getElementById('btn' + answer).style.background = '#228B22';
+    btn = document.getElementById('btn' + answer);
+    btn.style.background = '#228B22';
+    btn.style.opacity = "1.0";
+    
     var end = document.getElementById('end');
-    end.style.fontsize = "50em";
-    if (count > 0) {
-        end.style.background = '#228B22';
-        end.style.fontSize = "4em";
-        end.innerHTML = "Glückwunsch an den/die ZeichnerIn, es haben genügend Leute ihre Zeichnung erkannt! <br> Nächste Runde in 5 Minuten";
-    }
-    else {
-        end.style.background = '#FF0000';
-        end.style.fontSize = "3em";
-        end.innerHTML = "Tut mir leid, zu wenig Leute haben die Zeichnung erkannt. Der/Die MalerIn sollte eventuell das Hobby wechseln! <br> Nächste Runde in 5 Minuten";
-    }
+    endmsg.style.fontsize = "50em";
+    end.style.background = '#F5F5DC';
+    endmsg.style.fontSize = "3em";
+    endmsg.innerHTML = "Die Zeit ist abgelaufen! Gratulation an den/die ZeichnerIn, "+count+" Personen haben die Zeichnung erkannt. \n\
+        Falls jemand der Meinung ist, er könne das besser: <br> Einfach das nächste Quiz gewinnen und selber probieren!";
+
     end.style.visibility = "visible";
     request.open('post', "pusherEnd.php", true);
     request.send(null);
-    endtimer(5);
+    //endtimer(5);
 }
 
 function endtimer(i) {

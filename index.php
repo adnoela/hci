@@ -194,7 +194,9 @@ $drawinground = file_get_contents("drawingstatus.txt");
         </a>
     </div>
 
-    <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
+        <div id="end" style="position:absolute;top:1%;left:1%;width:98%;height:20%;border:2px solid;visibility:hidden;">
+            <div class="text-center" id="endmsg">      
+        </div>
 </body>
 </html>
 <!--
