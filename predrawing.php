@@ -1,5 +1,5 @@
 <?php
-
+$drawinground = file_get_contents("drawingstatus.txt");
 ?>
 <html>
     <head>
