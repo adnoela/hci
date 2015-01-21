@@ -1,4 +1,5 @@
-<?php include 'sessionmobile.php'; 
+<?php
+include 'sessionmobile.php';
 $filename = "drawingstatus.txt";
 $drawinground = file_get_contents($filename);
 ?>
@@ -25,7 +26,7 @@ and open the template in the editor.
             channel.bind('drawend-event', function (data) {
                 endquiz();
             });
-            
+
             //TODO php var setzen
             var drawingNumber = <?php echo $drawinground; ?>;
             var answers = new Array(3);
@@ -51,15 +52,15 @@ and open the template in the editor.
                 "Geschenksband"
             ];
             var rightA;
-            function setQandA () {
+            function setQandA() {
                 document.getElementById("btnA").innerHTML = answers[drawingNumber][1];
                 document.getElementById("btnB").innerHTML = answers[drawingNumber][2];
                 document.getElementById("btnC").innerHTML = answers[drawingNumber][3];
                 document.getElementById("btnD").innerHTML = answers[drawingNumber][4];
                 rightA = answers[drawingNumber][0];
             }
-            
-            
+
+
         </script>
     </head>
     <body onload="setQandA()">
@@ -77,26 +78,24 @@ and open the template in the editor.
         </div>
 
 
-        <div id="firstrow" class="row-fluid">
-                <div class="text-center">
-                    <h4>Erraten Sie, was auf dem Public Screen gezeichnet wird. <br> ACHTUNG: Ihre 1. Auswahl ist endgültig! Die Auflösung erfolgt, wenn die 
-                    Zeit auf dem Public-Screen abgelaufen ist!</h4>
-                </div>
-            <div class="col-xs-4"></div>
+        <div class="text-center">
+            <h4>Was wird am Public-Screen gezeichnet? <br> ACHTUNG: Ihre 1. Auswahl ist endgültig! Die Auflösung erfolgt, wenn die 
+                Zeit auf dem Public-Screen abgelaufen ist!</h4>
         </div>
-        <div class="drawanswer"  style="margin-top:5%;">
-            <button id="btnA" class="btn-xl btn-primary btn-block" onclick="answer('A')">Tannenbaum</button> 
-        </div>
-        <div class="drawanswer">
-            <button id="btnB" class="btn-xl btn-primary btn-block" onclick="answer('B')">Gitarre</button> 
-        </div>
-        <div class="drawanswer">
-            <button id="btnC" class="btn-xl btn-primary btn-block" onclick="answer('C')">Smarthone</button> 
-        </div>
-        <div class="drawanswer">
-            <button id="btnD" class="btn-xl btn-primary btn-block" onclick="answer('D')">Pizzaschneider</button> 
-        </div>
+    </div>
+    <div class="drawanswer">
+        <button id="btnA" class="btn-xl btn-primary btn-block" onclick="answer('A')">Tannenbaum</button> 
+    </div>
+    <div class="drawanswer">
+        <button id="btnB" class="btn-xl btn-primary btn-block" onclick="answer('B')">Gitarre</button> 
+    </div>
+    <div class="drawanswer">
+        <button id="btnC" class="btn-xl btn-primary btn-block" onclick="answer('C')">Smarthone</button> 
+    </div>
+    <div class="drawanswer">
+        <button id="btnD" class="btn-xl btn-primary btn-block" onclick="answer('D')">Pizzaschneider</button> 
+    </div>
 
-        <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
-    </body>
+    <div id="end" style="position:absolute;top:25%;left:5%;width:45%;height:50%;border:2px solid;visibility:hidden;"></div>
+</body>
 </html>
