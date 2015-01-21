@@ -72,12 +72,6 @@ function small() {
     coor = "";
 }
 
-function middle() {
-    size = 2;
-    coor = "middle";
-    send();
-    coor = "";
-}
 
 function large() {
     size = 4;

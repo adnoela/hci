@@ -64,7 +64,7 @@ and open the template in the editor.
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="text-center">
-                    <h4>Objekt: <?php echo $drawobject; ?></h4>
+                    <h4>Zu zeichnen: <?php echo $drawobject; ?></h4>
                 </div>
             </div>
             <div class="col-xs-4"></div>
@@ -76,9 +76,6 @@ and open the template in the editor.
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default" autofocus="true" onclick="small()">Klein</button>
-                </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default" onclick="middle()">Mittel</button>
                 </div>
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default" onclick="large()">Groß</button>
