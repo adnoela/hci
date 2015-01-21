@@ -31,12 +31,12 @@ and open the template in the editor.
     <body >
 
         <section id="header">
-            <a href="quizscreen.html"> <- Zurück</a>
-            <h1> QUIZ </h1>            
+            <a href="quizscreen.html"></a>
+            <br>
+            <p><h1> QUIZ - Standortvergleich</h1> </p>           
         </section>
 
         <section id="content">
-            <h1>Standortvergleich</h1>
             <h3>Hier werden die richtigen Antworten prozentuell pro Standort verglichen.
                 <br> Sie befinden sich am:</h3>
             <h2> Karlsplatz.</h2>
@@ -48,17 +48,22 @@ and open the template in the editor.
                 </canvas
                 <p > <label style="text-align: right; font-size: 20px; font-weight: bold ">Standorte</label> </p>
             </div>
-
+            
         </section>
 
-        <div class="community" style="position:absolute;bottom:-65px;right:105px;">            
+        <div class="text-center">
+            <br>
+            <p><h3> In Kürze folgt das Draw-Quiz.
+                <br>Möchten Sie mitspielen? Einfach den QR-Code scannen!</h3></p>
+        </div>
+        <!--div class="community" style="position:absolute;bottom:-65px;right:105px;">            
         <label id="users" style="font-size:20px">137</label>
         <img src="pics/users1.jpg" width="64px" height="64px">
-        </div>
+        </div-->
         
         <div id="qr-box">
-            <a href="quizmobile.php">
-                <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fquizmobile.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />               
+            <a href="drawquiz.php" style>
+            <img id="code" src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fdacima.lima-city.de%2Fdrawquiz.php&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />            
             </a>
         </div>
 
@@ -103,7 +108,7 @@ and open the template in the editor.
                 window.setTimeout(function () {
                     startDrawing();
                     window.location.href = "http://dacima.lima-city.de/index.php";
-                }, 10000);
+                }, 15000);
             }
 
             var request = new XMLHttpRequest();
