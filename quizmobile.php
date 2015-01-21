@@ -113,15 +113,18 @@ $quizstatus = file_get_contents("quizstatus.txt");
             var request = new XMLHttpRequest();
 
             function sendAnswer(answer) {
-
+    
                 var btn = document.getElementsByClassName('btn-x2');
                 for (var i = 0; i < btn.length; i++) {
                     btn[i].disabled = "true";
-                    btn[i].style.background = '#696969';
+                    //btn[i].style.background = '#696969';
+                    btn[i].style.opacity = "0.3";
                 }
 
                 btn = document.getElementById('btn' + answer);
                 btn.style.background = '#FFA500';
+                btn.selected="true";
+                btn.style.opacity = "1.0";
 
                 request.open('post', "pusherAnswer.php?input=" + answer + "E" + php_var, true);
                 request.send(null);
@@ -193,14 +196,18 @@ $quizstatus = file_get_contents("quizstatus.txt");
         </div>
         <div id="firstrow" class="row-fluid">
                 <div class="text-center">
+                    <p>
                     <h4>Die Auflösung erfolgt sobald die Zeit am Public-Screen abgelaufen ist.
-                        <br> ACHTUNG: Ihre 1. Auswahl ist endgültig! <br>
+                        <br> ACHTUNG: Ihre 1. Auswahl ist endgültig!
                     </h4>
+                    </p>
                 </div>
             <div class="col-xs-4"></div>
         </div>
         <div class="question-mobile">
-            <p> <h3 id="question" ></h3> </p>
+            <p>
+                <h3 id="question" ></h3>
+            </p>
         </div>
         <div class="qanswer">
             <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
