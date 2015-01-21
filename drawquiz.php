@@ -79,7 +79,8 @@ and open the template in the editor.
 
         <div id="firstrow" class="row-fluid">
                 <div class="text-center">
-                    <h4>Erraten Sie, was auf dem Public Screen gezeichnet wird. <br> ACHTUNG: Ihre 1. Auswahl ist endgültig!</h4>
+                    <h4>Erraten Sie, was auf dem Public Screen gezeichnet wird. <br> ACHTUNG: Ihre 1. Auswahl ist endgültig! Die Auflösung erfolgt, wenn die 
+                    Zeit auf dem Public-Screen abgelaufen ist!</h4>
                 </div>
             <div class="col-xs-4"></div>
         </div>

@@ -94,11 +94,13 @@ function answer(answer) {
     btn = document.getElementsByClassName('btn-xl');
     for (var i=0; i<btn.length;i++){
         btn[i].disabled="true";
+        btn[i].style.opacity = "0.5";
         btn[i].style.background='#696969';
     }
     
     btn = document.getElementById('btn'+answer);
     btn.style.background='#FFA500';
+    btn.style.opacity = "1.0";
     request.open('post', "pusherdrawans.php?ans=" + ans, true);
     request.send(null);
 }
