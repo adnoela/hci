@@ -36,14 +36,17 @@ and open the template in the editor.
         </section>
 
         <section id="content">
-            <h2> Prozent richtiger Antworten je Standort</h2>
+            <h1>Standortvergleich</h1>
+            <h3>Hier werden die richtigen Antworten prozentuell pro Standort verglichen.
+                <br> Sie befinden sich am:</h3>
+            <h2> Karlsplatz.</h2>
             <div>
-                <p style="text-align: left; margin-left: 15%"><label style="font-size: 18px; text-align: left">Prozent</label></p>
+                <p style="text-align: left; margin-left: 15%"><label style="font-size: 20px; text-align: left">Prozent</label></p>
                 <canvas id="canvas" width="900" height="350" style="background-color: #FFFFFF;">
                     <p>Dieses Beispiel benötigt einen Webbrowser mit aktivierter
                         <a href="http://de.wikipedia.org/wiki/Canvas_(HTML-Element)">HTML Canvas</a>-Unterstützung.</p>
                 </canvas
-                <p > <label style="text-align: right; font-size: 18px; font-weight: bold ">Standorte</label> </p>
+                <p > <label style="text-align: right; font-size: 20px; font-weight: bold ">Standorte</label> </p>
             </div>
 
         </section>
@@ -82,6 +85,7 @@ and open the template in the editor.
                 ]
 
             }
+            
             window.onload = function () {
                 var ctx = document.getElementById("canvas").getContext("2d");
                 window.myBar = new Chart(ctx).Bar(barChartData);
@@ -99,7 +103,7 @@ and open the template in the editor.
                 window.setTimeout(function () {
                     startDrawing();
                     window.location.href = "http://dacima.lima-city.de/index.php";
-                }, 5000);
+                }, 10000);
             }
 
             var request = new XMLHttpRequest();
