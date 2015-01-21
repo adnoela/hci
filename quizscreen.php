@@ -147,7 +147,7 @@ if (file_exists($filename)) {
                     //alert("right: " + right + ", wrong: " + wrong);
                     //document.getElementById("rightAnswers").textContent = right.toString();
                     //document.getElementById("wrongAnswers").textContent = wrong.toString();
-                    document.getElementById("nrAns").textContent = (right + wrong).toString();
+                    document.getElementsByName("nrAns").textContent = "Answers: " + (right + wrong).toString();
 
                     percent = (right) / (right + wrong) * 100;
                     document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
@@ -229,7 +229,7 @@ if (file_exists($filename)) {
                     <input id="input" name="countdown" style="font-size: 20px; background-color: transparent;" size="25" value="Verbleibende Zeit: 45 Sekunden">
                 </form>
                 <form name="counterform" style="font-size: 20px;background-color: transparent;">
-                    Antworten: <label id="nrAns">0</label>
+                    <input id="input" name="nrAns" style="font-size: 20px; background-color: transparent;" size="25" value="Antworten: 0"> 
                 </form>
                 
             </div>
