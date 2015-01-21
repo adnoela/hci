@@ -45,8 +45,8 @@ if (file_exists($filename)) {
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-
-
+        
+        
         <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
         <script type="text/javascript">
 
@@ -164,7 +164,7 @@ if (file_exists($filename)) {
 
 
             var startTime = new Date().getTime();
-            var seconds = 60;
+            var seconds = 45;
             var endTime = startTime + seconds * 1000;
 
             var max = 100;
@@ -172,7 +172,7 @@ if (file_exists($filename)) {
             var interval = 100;
             var x = max / seconds * (interval / 1000);
 
-            function countdown() {
+            function pbarCountdown() {
                 var bar = document.getElementById("pbarTimer");
 
                 var cint = setInterval(function () {
@@ -187,13 +187,17 @@ if (file_exists($filename)) {
                             clearInterval(cint);
                     } else {
                         counter = counter - x;
+                        var sec = counter/max*seconds;
+                        sec = Math.round(sec);
+                        document.countdownform.countdown.value = "Verbleibende Zeit: " + sec + " Sekunden";
+
                         bar.style.width = counter + "%";
                         bar.style.background="#6B8E23";
                     }
 
                 }, interval)
             }
-
+            
             function showRightAnswer() {
                 acceptAnswers = false;
                 var button = document.getElementById("answer-" + rightA);
@@ -201,7 +205,7 @@ if (file_exists($filename)) {
             }
 
             function startFunction() {
-                countdown();
+                pbarCountdown();
                 setQandA();
             }
 
@@ -210,11 +214,31 @@ if (file_exists($filename)) {
 
     </head>
     <body onload="startFunction()">
-        <section id="header">
-            <a href="index.html"> <- Index</a>
-            <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40">Quiz-Analysis -></a>
-            <h1> QUIZ</h1>            
+         <section id="header">
+            <a href="index.html"> </a>
+            <a id="analysisLink" href="quizanalysis.php?Akh=10&Kar=20&Rat=30&Spi=40"> </a>
+            
+        <div class="row-fluid" style="width:100%;min-height: 15%;">
+            <div class="col-md-9">
+                <div class="text-center" style="font-size: 40px;font-weight:bold; margin-left: 30%">
+                    <p> QUIZ <br>Du willst mitraten? Einfach QR-Code scannen! </p>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-top:1%;">
+                <form name="countdownform">
+                    <input id="input" name="countdown" style="font-size: 20px; background-color: transparent;" size="25" value="Verbleibende Zeit: 45 Sekunden">
+                </form>
+                <form name="counterform" style="font-size: 20px;background-color: transparent;">
+                    Antworten: <label id="nrAns">0</label>
+                </form>
+                
+            </div>
+        </div>
         </section>
+
+        <!--section id="header">
+            <h1> QUIZ</h1>            
+        </section-->
 
         <div id="content">
             <h2 id="question"> </h2>
@@ -232,11 +256,11 @@ if (file_exists($filename)) {
 
         </div>
 
-        <div class="community" style="position:absolute;bottom:-45px;right:105px;">  
+        <!--div class="community" style="position:absolute;bottom:-45px;right:105px;">  
             <p style="font-size:20px"> Antworten:  <label id="nrAns">0</label> </p>
             <label id="users" style="font-size:20px">137</label>
             <img src="pics/users1.jpg" width="64px" height="64px">
-        </div>
+        </div-->
 
         <section id="footer">
             <div id="qr-box">
