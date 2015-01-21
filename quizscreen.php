@@ -183,7 +183,7 @@ if (file_exists($filename)) {
                             quizEndMsg(winnerID);
                             window.setTimeout(function () {
                                 window.location.href = document.getElementById("analysisLink").getAttribute("href");
-                            }, 3000);
+                            }, 5000);
                             clearInterval(cint);
                     } else {
                         counter = counter - x;
