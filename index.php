@@ -159,9 +159,7 @@ $drawinground = file_get_contents("drawingstatus.txt");
                 <form name="counterform">
                     <input id="input" name="counter" style="font-size: 20px;background-color: transparent;" value="Richtige Antworten: 0">
                 </form>
-                <form name="benoetigt">
-                    <input id="input" name="noetig" style="font-size: 20px;background-color: transparent;" value="                 benötigt: 2">
-                </form>
+                
             </div>
         </div>
         <div  style="margin-left: 5%;margin-right: 5%;">
@@ -189,10 +187,6 @@ $drawinground = file_get_contents("drawingstatus.txt");
         </div>
     </div>
 
-    <div class="community" style="position:absolute;bottom:-65px;right:105px;">            
-        <label id="users" style="font-size:20px">137</label>
-        <img src="pics/users1.jpg" width="64px" height="64px">
-    </div>
     <div class="qrBox">
 
         <a href="drawquiz.php" style>
