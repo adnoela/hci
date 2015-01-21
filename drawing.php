@@ -70,7 +70,7 @@ and open the template in the editor.
             <div class="col-xs-4"></div>
         </div>
         <div id="canvasDiv"> 
-            <canvas id="can" width="400" height="400" style="border: 2px solid;"></canvas>
+            <canvas id="can" width="400" height="400" style="border: 2px solid; background-color:#FFFFFF""></canvas>
         </div>
         <div class="col-xs-6">
             <div class="btn-group btn-group-justified" role="group">
