@@ -191,8 +191,16 @@ $quizstatus = file_get_contents("quizstatus.txt");
                 </div>
             </div>
         </div>
+        <div id="firstrow" class="row-fluid">
+                <div class="text-center">
+                    <h4>Die Auflösung erfolgt sobald die Zeit am Public-Screen abgelaufen ist.
+                        <br> ACHTUNG: Ihre 1. Auswahl ist endgültig! <br>
+                    </h4>
+                </div>
+            <div class="col-xs-4"></div>
+        </div>
         <div class="question-mobile">
-            <h3 id="question" ></h3>
+            <p> <h3 id="question" ></h3> </p>
         </div>
         <div class="qanswer">
             <button class="btn-x2 btn-primary btn-block" id="btnA" onclick="sendAnswer('A')"></button>
