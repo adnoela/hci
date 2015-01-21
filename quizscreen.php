@@ -149,7 +149,7 @@ if (file_exists($filename)) {
                     //alert("right: " + right + ", wrong: " + wrong);
                     //document.getElementById("rightAnswers").textContent = right.toString();
                     //document.getElementById("wrongAnswers").textContent = wrong.toString();
-                    document.getElementById("nrAns").textContent = (right+wrong).toString();
+                    document.getElementById("nrAns").textContent = (right + wrong).toString();
 
                     percent = (right) / (right + wrong) * 100;
                     document.getElementById("analysisLink").setAttribute("href", "quizanalysis.php?Akh=10&Kar=" + percent + "&Rat=30&Spi=40");
@@ -176,7 +176,7 @@ if (file_exists($filename)) {
 
             function countdown() {
                 var bar = document.getElementById("pbarTimer");
-                
+
                 var cint = setInterval(function () {
                     if (counter - x < 0 || (new Date().getTime() >= endTime)) {
                         bar.style.width = 0;
@@ -194,9 +194,9 @@ if (file_exists($filename)) {
                         {
                             quizEndMsg("reload");
                             window.setTimeout(function () {
-                            location.reload();
-                             }, 3000);
-                             clearInterval(cint);
+                                location.reload();
+                            }, 3000);
+                            clearInterval(cint);
                         }
                     } else {
                         counter = counter - x;
@@ -243,17 +243,13 @@ if (file_exists($filename)) {
             </div>
 
         </div>
-        
 
-
-        <div class="community">  
+        <div class="community" style="position:absolute;bottom:-45px;right:105px;">  
             <p style="font-size:20px"> Antworten:  <label id="nrAns">0</label> </p>
-            <!--p>right: <label id="rightAnswers">0</label>, wrong: <label id="wrongAnswers">0</label-->
-            <label id="users" style="font-size:20px">132</label>
+            <label id="users" style="font-size:20px">137</label>
             <img src="pics/users1.jpg" width="64px" height="64px">
-
         </div>
-            
+
         <section id="footer">
             <div id="qr-box">
                 <a href="quizmobile.php">
