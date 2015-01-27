@@ -52,7 +52,7 @@ and open the template in the editor.
         </section>
 
         <div class="text-center">
-            <br>
+            <br><br>
             <p><h3> In Kürze folgt das Draw-Quiz.
                 <br>Möchten Sie mitspielen? Einfach den QR-Code scannen!</h3></p>
         </div>
