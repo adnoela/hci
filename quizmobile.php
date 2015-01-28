@@ -1,17 +1,10 @@
 <?php
-include 'sessionmobile.php';
-if ($_SESSION['currentpage'] === "quiz") {
-    
-} elseif ($_SESSION['currentpage'] === "drawquiz") {
-    if ($_SESSION['drawing']) {
-        header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/drawing.php');
-        exit;
-    } else {
-        
-    }
+$status = file_get_contents("status.txt");
+if ($status === "drawing")
+{
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) . '/drawquiz.php');
     exit;
 }
-
 
 $quizstatus = file_get_contents("quizstatus.txt");
 //} elseif ($_SESSION['currentpage'] === "drawquiz") {

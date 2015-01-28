@@ -1,5 +1,6 @@
-
 <?php
+
+file_put_contents("status.txt", "quiz");
 include 'sessionscreen.php';
 $Akh = $_GET["Akh"];
 $Kar = $_GET["Kar"];

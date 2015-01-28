@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-file_put_contents("status.txt", "quiz");
+file_put_contents("status.txt", "drawing");
 $currentpage = file_get_contents('quizstatus.txt');
 if (empty($currentpage)) {
     file_put_contents('quizstatus.txt', 'quiz0');

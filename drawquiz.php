@@ -1,5 +1,11 @@
 <?php
-include 'sessionmobile.php';
+$status = file_get_contents("status.txt");
+if ($status === "quiz")
+{
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . (dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF'])) .  '/quizmobile.php');
+    exit;
+}
+
 $filename = "drawingstatus.txt";
 $drawinground = file_get_contents($filename);
 ?>

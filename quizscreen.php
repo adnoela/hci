@@ -1,5 +1,6 @@
 <?php
 session_start();
+file_put_contents("status.txt", "quiz");
 
 $quiz = file_get_contents("quizstatus.txt");
 
